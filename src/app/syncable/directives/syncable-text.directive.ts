@@ -20,9 +20,7 @@ export class SyncableTextDirective implements OnInit {
   }
 
   private handleInput(): void {
-    console.log(this.inputElement.value);
-    console.log(this.syncableText.path);
-    this._sync.insert(this.syncableText, this.inputElement.value);
+    this._sync.insert(this.syncableText, '' + this.inputElement.value);
   }
 
 }

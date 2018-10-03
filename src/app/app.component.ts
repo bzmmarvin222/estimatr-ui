@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Operation, OperationType, SyncableResource, WebSocketHandler} from "sync_ot";
 import {SyncableService} from "./syncable/services/syncable.service";
 import {SyncableTree} from "./syncable/forms/syncable-tree";
 
@@ -11,7 +10,6 @@ import {SyncableTree} from "./syncable/forms/syncable-tree";
 export class AppComponent implements OnInit{
 
   public data: SyncableTree;
-  private _sr;
 
   constructor(private _sync: SyncableService) {
   }
@@ -21,34 +19,10 @@ export class AppComponent implements OnInit{
   }
 
   public add(): void {
-    this._sync.append();
+    this._sync.appendToRoot();
   }
 
-  public sync(): void {
-    const insertion:Operation = {
-      range: {
-        start: 1,
-        //end will be ignored on insertion
-        end: -1
-      },
-      type: OperationType.INSERT,
-      data: 'Insert',
-      objectPath: ['data']
-    };
-
-    this._sr.queueOperation(insertion);
-  }
-
-  public syncBy(ev: string) {
-    const update:Operation = {
-      range: {
-        start: -1,
-        end: -1
-      },
-      type: OperationType.FULL_REPLACEMENT,
-      data: ev,
-      objectPath: ['data']
-    };
-    this._sr.queueOperation(update);
+  public addToChild(child: SyncableTree): void {
+    this._sync.appendTo(child);
   }
 }
