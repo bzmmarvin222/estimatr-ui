@@ -25,4 +25,8 @@ export class AppComponent implements OnInit{
   public addToChild(child: SyncableTree): void {
     this._sync.appendTo(child);
   }
+
+  public rmChild(child: SyncableTree): void {
+    this._sync.remove(child);
+  }
 }

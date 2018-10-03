@@ -26,10 +26,7 @@ export class SyncableTreeUtil {
     return {
       objectPath: node.path.concat(['children', node.children.length]),
       type: OperationType.FULL_REPLACEMENT,
-      data: this.createChild(node),
-      range: {
-        start: -1, end: -1
-      }
+      data: this.createChild(node)
     };
   }
 
@@ -38,10 +35,14 @@ export class SyncableTreeUtil {
     return {
       objectPath: node.path.concat(['data']),
       type: OperationType.FULL_REPLACEMENT,
-      data: data,
-      range: {
-        start: -1, end: -1
-      }
+      data: data
+    }
+  }
+
+  public static createDeletionOperation(node: SyncableTree): Operation {
+    return {
+      objectPath: node.path,
+      type: OperationType.DELETE
     }
   }
 }

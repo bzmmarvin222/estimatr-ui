@@ -10,5 +10,6 @@
 
   <div *ngFor="let innerChild of child.children" style="margin-left: 40px;">
     <input [syncableText]="innerChild" [(ngModel)]="innerChild.data">
+    <button (click)="rmChild(innerChild)">Remove</button>
   </div>
 </div>

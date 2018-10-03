@@ -30,4 +30,8 @@ export class SyncableService {
   public insert(node: SyncableTree, data: string): void {
     this._sr.queueOperation(SyncableTreeUtil.createInsertionOperation(node, data));
   }
+
+  remove(node: SyncableTree) {
+    this._sr.queueOperation(SyncableTreeUtil.createDeletionOperation(node));
+  }
 }
