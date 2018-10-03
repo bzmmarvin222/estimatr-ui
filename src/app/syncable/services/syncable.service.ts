@@ -11,7 +11,7 @@ export class SyncableService {
 
   constructor() {
     this._tree = SyncableTreeUtil.createEmpty();
-    const handler = new WebSocketHandler('ws://192.168.178.57:1337/');
+    const handler = new WebSocketHandler('ws://localhost:1337/');
     this._sr = new SyncableResource(handler, this._tree);
   }
 
