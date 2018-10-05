@@ -1,37 +1,26 @@
 import {Injectable} from '@angular/core';
-import {SyncableTree, SyncableTreeUtil} from "../forms/syncable-tree";
-import {OperationType, SyncableResource, WebSocketHandler} from "sync_ot";
+import { SyncableResource, SyncableTree, WebSocketHandler} from "sync_ot";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SyncableService {
-  private readonly _tree: SyncableTree;
-  private _sr: SyncableResource<SyncableTree>;
+  private readonly _tree$;
+  private readonly _sr: SyncableResource<any>;
 
   constructor() {
-    this._tree = SyncableTreeUtil.createEmpty();
     const handler = new WebSocketHandler('ws://localhost:1337/');
-    this._sr = new SyncableResource(handler, this._tree);
+    this._sr = new SyncableResource(handler);
+    this._tree$ = this._sr.getTree$();
+
   }
 
-  get tree(): SyncableTree {
-    return this._tree;
+  get tree$(): Observable<SyncableTree<any>> {
+    return this._tree$;
   }
 
-  public appendToRoot(): void {
-    this.appendTo(this._tree);
-  }
-
-  public appendTo(node: SyncableTree): void {
-    this._sr.queueOperation(SyncableTreeUtil.createAppendOperation(node));
-  }
-
-  public insert(node: SyncableTree, data: string): void {
-    this._sr.queueOperation(SyncableTreeUtil.createInsertionOperation(node, data));
-  }
-
-  remove(node: SyncableTree) {
-    this._sr.queueOperation(SyncableTreeUtil.createDeletionOperation(node));
+  get sr(): SyncableResource<SyncableTree<any>> {
+    return this._sr;
   }
 }

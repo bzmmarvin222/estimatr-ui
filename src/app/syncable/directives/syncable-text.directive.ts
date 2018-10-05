@@ -1,13 +1,13 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
-import {SyncableTree} from "../forms/syncable-tree";
 import {SyncableService} from "../services/syncable.service";
+import {Operation, SyncableTree} from "sync_ot";
 
 @Directive({
   selector: '[syncableText]'
 })
 export class SyncableTextDirective implements OnInit {
 
-  @Input() syncableText: SyncableTree;
+  @Input() syncableText: SyncableTree<any>;
   private inputElement: HTMLInputElement;
 
   constructor(private _el: ElementRef,
@@ -20,7 +20,10 @@ export class SyncableTextDirective implements OnInit {
   }
 
   private handleInput(): void {
-    this._sync.insert(this.syncableText, '' + this.inputElement.value);
+    console.log(this.syncableText);
+    console.log(this.syncableText.getPathFromRoot());
+    const operation: Operation = this.syncableText.createReplacement(this.inputElement.value);
+    this._sync.sr.queueOperation(operation);
   }
 
 }

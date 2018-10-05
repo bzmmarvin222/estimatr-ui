@@ -1,10 +1,14 @@
 <pre style="max-height: 200px; overflow-y: scroll;">
-  {{data | json}}
+  {{(data$ | async)?.toNonRecursive() | json}}
+
 </pre>
 
-<button (click)="add()">Add</button>
+<div *ngIf="(data$ | async) as root">
+  <button (click)="addToChild(root)">Add</button>
+</div>
 
-<div *ngFor="let child of data.children">
+
+<div *ngFor="let child of (data$ | async)?.children">
   <input [syncableText]="child" [(ngModel)]="child.data">
   <button (click)="addToChild(child)">Add</button>
 

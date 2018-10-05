@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SyncableService} from "./syncable/services/syncable.service";
-import {SyncableTree} from "./syncable/forms/syncable-tree";
+import {SyncableTree} from "sync_ot";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -9,24 +10,26 @@ import {SyncableTree} from "./syncable/forms/syncable-tree";
 })
 export class AppComponent implements OnInit{
 
-  public data: SyncableTree;
+  public data$: Observable<SyncableTree<any>>;
 
   constructor(private _sync: SyncableService) {
   }
 
   ngOnInit(): void {
-    this.data = this._sync.tree;
+    this.data$ = this._sync.tree$;
   }
 
-  public add(): void {
-    this._sync.appendToRoot();
+
+
+  public addToChild(child: SyncableTree<any>): void {
+    console.log(child);
+    const operation = child.createChildAppend('foo');
+    console.log(operation);
+    this._sync.sr.queueOperation(operation);
   }
 
-  public addToChild(child: SyncableTree): void {
-    this._sync.appendTo(child);
-  }
-
-  public rmChild(child: SyncableTree): void {
-    this._sync.remove(child);
+  public rmChild(child: SyncableTree<any>): void {
+    const operation = child.createNodeDeletion();
+    this._sync.sr.queueOperation(operation);
   }
 }
