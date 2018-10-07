@@ -13,6 +13,7 @@
   ],
   "include": [
     "**/*.spec.ts",
+    "**/*.stubs.ts",
     "**/*.d.ts"
   ]
 }

@@ -9,8 +9,8 @@
 
 
 <div *ngFor="let child of (data$ | async)?.children">
-  <input [syncableText]="child" [(ngModel)]="child.data">
-  <button (click)="addToChild(child)">Add</button>
+  <input [syncableText]="child" [(ngModel)]="child.data" (change)="change($event)">
+  <button (click)="addToChild(child)">{{child?.dataChanges$ | async}}</button>
 
   <div *ngFor="let innerChild of child.children" style="margin-left: 40px;">
     <input [syncableText]="innerChild" [(ngModel)]="innerChild.data">

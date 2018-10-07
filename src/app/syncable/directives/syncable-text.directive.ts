@@ -20,6 +20,7 @@ export class SyncableTextDirective implements OnInit {
   }
 
   private handleInput(): void {
+    console.log(this.inputElement.selectionStart);
     console.log(this.syncableText);
     console.log(this.syncableText.getPathFromRoot());
     const operation: Operation = this.syncableText.createReplacement(this.inputElement.value);
