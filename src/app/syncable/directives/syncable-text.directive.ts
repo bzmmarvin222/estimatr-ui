@@ -14,15 +14,12 @@ export class SyncableTextDirective implements OnInit {
               private _sync: SyncableService) { }
 
   ngOnInit(): void {
-    console.log('test');
     this.inputElement = this._el.nativeElement as HTMLInputElement;
     this.inputElement.addEventListener('input', () => this.handleInput());
   }
 
   private handleInput(): void {
-    console.log(this.inputElement.selectionStart);
-    console.log(this.syncableText);
-    console.log(this.syncableText.getPathFromRoot());
+    // TODO: no full replacement
     const operation: Operation = this.syncableText.createReplacement(this.inputElement.value);
     this._sync.sr.queueOperation(operation);
   }
