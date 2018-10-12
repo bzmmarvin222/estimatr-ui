@@ -1,0 +1,14 @@
+@import "../../../../colors";
+
+.topic_header {
+  margin-top: 20px;
+
+  h3 {
+    display: flex;
+    border-bottom: 1px solid $font-color;
+
+    p {
+      flex-grow: 1;
+    }
+  }
+}
