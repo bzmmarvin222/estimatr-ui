@@ -1,0 +1,12 @@
+@import "../../../colors";
+
+.header {
+  background: $header-background;
+  height: 50px;
+
+  .content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {SyncableModule} from "./syncable/syncable.module";
 import {FormsModule} from "@angular/forms";
+import {CoreModule} from "./core/core.module";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     FormsModule,
-    SyncableModule
+    SyncableModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
