@@ -21,11 +21,15 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@fortawesome/angular-fontawesome": "^0.2.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.6",
+    "@fortawesome/free-solid-svg-icons": "^5.4.1",
     "angular-draggable-droppable": "^4.0.2",
     "core-js": "^2.5.4",
     "reset-css": "^4.0.1",
     "rxjs": "~6.2.0",
-    "sync_ot": "file:../../otts",
+    "sync_ot": "file:../sync_ot",
+    "websocket": "^1.0.28",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

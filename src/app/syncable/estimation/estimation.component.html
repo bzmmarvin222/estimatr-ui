@@ -1,7 +1,13 @@
-<div class="estimation_root default_padded">
+<div class="estimation_root default_padded" *ngIf="(estimation$ | async) as estimation; else notInitialized">
   <h2>
-    Project name here
+    {{estimation.data}}
   </h2>
 
-  <etmr-topic></etmr-topic>
+  <etmr-topic *ngFor="let topic of estimation.children" [topicNode]="topic"></etmr-topic>
 </div>
+
+<ng-template #notInitialized>
+  <div>
+    Not Init
+  </div>
+</ng-template>

@@ -1,11 +1,9 @@
 <div class="topic_header">
   <h3>
-    <p>Estimation Topic</p>
+    <p>{{topicNode.data}}</p>
 
-    <button class="add">Add</button>
+    <fa-icon class="add" [icon]="faPlus" size="xs"></fa-icon>
   </h3>
 
-  <etmr-single-estimate></etmr-single-estimate>
-  <etmr-single-estimate></etmr-single-estimate>
-  <etmr-single-estimate></etmr-single-estimate>
+  <etmr-single-estimate *ngFor="let single of topicNode.children" [singleEstimate]="single"></etmr-single-estimate>
 </div>
