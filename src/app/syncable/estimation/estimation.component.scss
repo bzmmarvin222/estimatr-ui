@@ -1,3 +1,18 @@
+@import "../../../colors";
+
 .estimation_root {
   padding: 20px;
+
+  h2 {
+    display: flex;
+    border-bottom: 2px solid $border-color;
+
+    p {
+      flex-grow: 1;
+    }
+
+    .add {
+      cursor: pointer;
+    }
+  }
 }
