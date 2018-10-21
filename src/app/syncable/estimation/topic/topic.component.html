@@ -1,8 +1,8 @@
 <div class="topic_header">
   <h3>
-    <p>{{topicNode.data}}</p>
+    <etmr-estimation-text [node]="topicNode"></etmr-estimation-text>
 
-    <fa-icon class="add" [icon]="faPlus" size="xs"></fa-icon>
+    <fa-icon class="add" [icon]="faPlus" size="xs" (click)="addSingleEstimate()"></fa-icon>
   </h3>
 
   <etmr-single-estimate *ngFor="let single of topicNode.children" [singleEstimate]="single"></etmr-single-estimate>

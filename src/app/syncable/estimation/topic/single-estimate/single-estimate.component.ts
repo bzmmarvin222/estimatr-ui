@@ -8,6 +8,7 @@ import {EstimationLeaf, EstimationNode} from '../../../models/estimation-node';
   styleUrls: ['./single-estimate.component.scss']
 })
 export class SingleEstimateComponent implements OnInit {
+  // TODO: syncable tree data tree must be extensible
   @Input() singleEstimate: SyncableTree<EstimationLeaf>;
 
   constructor() { }

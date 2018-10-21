@@ -1,0 +1,19 @@
+@import "../../../../colors";
+
+:host {
+  flex-grow: 1;
+}
+
+input {
+  border: none;
+  margin-bottom: 1px;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+  width: 100%;
+  padding: 0 20px 0 0;
+
+  &.border {
+    border: 1px solid $border-color;
+  }
+}

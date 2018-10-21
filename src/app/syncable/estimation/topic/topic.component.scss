@@ -7,8 +7,9 @@
     display: flex;
     border-bottom: 2px solid $border-color;
 
-    p {
-      flex-grow: 1;
+    .add {
+      cursor: pointer;
+      margin-top: 5px;
     }
   }
 }

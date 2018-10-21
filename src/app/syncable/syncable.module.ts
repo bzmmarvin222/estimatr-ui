@@ -7,6 +7,7 @@ import {EstimationComponent} from './estimation/estimation.component';
 import {TopicComponent} from './estimation/topic/topic.component';
 import {SingleEstimateComponent} from './estimation/topic/single-estimate/single-estimate.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { EstimationTextComponent } from './estimation/estimation-text/estimation-text.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     SyncableTextDirective,
     EstimationComponent,
     TopicComponent,
-    SingleEstimateComponent
+    SingleEstimateComponent,
+    EstimationTextComponent
   ],
   providers: [
     SyncableService

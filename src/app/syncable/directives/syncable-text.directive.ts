@@ -1,7 +1,6 @@
 import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {SyncableService} from '../services/syncable.service';
 import {Operation, SyncableTree} from 'sync_ot';
-import {Subscription} from 'rxjs';
 
 @Directive({
   selector: '[syncableText]'
@@ -10,7 +9,7 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
 
   @Input() syncableText: SyncableTree<any>;
   private _inputElement: HTMLInputElement;
-  private _subscription: Subscription;
+  private _subscription;
 
   constructor(private _el: ElementRef,
               private _sync: SyncableService) {

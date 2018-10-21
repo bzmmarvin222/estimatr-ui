@@ -1,7 +1,6 @@
 <div class="estimation_root default_padded" *ngIf="(estimation$ | async) as estimation; else notInitialized">
   <h2>
-    <input type="text" [syncableText]="estimation"/>
-
+    <etmr-estimation-text [node]="estimation"></etmr-estimation-text>
     <fa-icon class="add" [icon]="faPlus" size="xs" (click)="addTopic(estimation)"></fa-icon>
   </h2>
 
