@@ -1,6 +1,6 @@
 <div class="estimation_root default_padded" *ngIf="(estimation$ | async) as estimation; else notInitialized">
   <h2>
-    <p>{{estimation.data}}</p>
+    <input type="text" [syncableText]="estimation"/>
 
     <fa-icon class="add" [icon]="faPlus" size="xs" (click)="addTopic(estimation)"></fa-icon>
   </h2>

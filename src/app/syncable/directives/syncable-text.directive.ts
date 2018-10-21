@@ -1,27 +1,34 @@
-import {Directive, ElementRef, Input, OnInit} from '@angular/core';
-import {SyncableService} from "../services/syncable.service";
-import {Operation, SyncableTree} from "sync_ot";
+import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
+import {SyncableService} from '../services/syncable.service';
+import {Operation, SyncableTree} from 'sync_ot';
+import {Subscription} from 'rxjs';
 
 @Directive({
   selector: '[syncableText]'
 })
-export class SyncableTextDirective implements OnInit {
+export class SyncableTextDirective implements OnInit, OnDestroy {
 
   @Input() syncableText: SyncableTree<any>;
-  private inputElement: HTMLInputElement;
+  private _inputElement: HTMLInputElement;
+  private _subscription: Subscription;
 
   constructor(private _el: ElementRef,
-              private _sync: SyncableService) { }
+              private _sync: SyncableService) {
+  }
 
   ngOnInit(): void {
-    this.inputElement = this._el.nativeElement as HTMLInputElement;
-    this.inputElement.addEventListener('input', () => this.handleInput());
+    this._inputElement = this._el.nativeElement as HTMLInputElement;
+    this._inputElement.addEventListener('input', () => this.handleInput());
+    this._subscription = this.syncableText.dataChanges$.subscribe(data => this._inputElement.value = data);
   }
 
   private handleInput(): void {
     // TODO: no full replacement
-    const operation: Operation = this.syncableText.createReplacement(this.inputElement.value);
+    const operation: Operation = this.syncableText.createReplacement(this._inputElement.value);
     this._sync.sr.queueOperation(operation);
   }
 
+  ngOnDestroy(): void {
+    this._subscription.unsubscribe();
+  }
 }
