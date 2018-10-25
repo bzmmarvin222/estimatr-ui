@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SyncableTree} from 'sync_ot';
+import {ObjectPath} from "sync_ot/dist/operation/object-traversing-util";
 
 @Component({
   selector: 'etmr-estimation-text',
@@ -9,6 +10,7 @@ import {SyncableTree} from 'sync_ot';
 export class EstimationTextComponent implements OnInit {
 
   @Input() public node: SyncableTree<any>;
+  @Input() public objectPath: ObjectPath = [];
   @Input() public withBorder = false;
 
   constructor() { }

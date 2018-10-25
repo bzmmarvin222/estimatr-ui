@@ -14,6 +14,7 @@ export class SingleEstimateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // this.singleEstimate.
   }
 
 }
