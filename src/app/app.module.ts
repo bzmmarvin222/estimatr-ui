@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {SyncableModule} from "./syncable/syncable.module";
 import {FormsModule} from "@angular/forms";
 import {CoreModule} from "./core/core.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {CoreModule} from "./core/core.module";
     BrowserModule,
     FormsModule,
     SyncableModule,
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

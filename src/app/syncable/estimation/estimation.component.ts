@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SyncableService} from '../services/syncable.service';
 import {Observable} from 'rxjs';
 import {Operation, SyncableTree} from 'sync_ot';
-import {EstimationNode} from '../models/estimation-node';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
+import {EstimationNode} from '../shared/estimation-node';
 
 @Component({
   selector: 'etmr-estimation',
@@ -11,9 +10,7 @@ import {faPlus} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./estimation.component.scss']
 })
 export class EstimationComponent implements OnInit {
-  //TODO: Syncable Tree children should not require the same type as parents
   public estimation$: Observable<SyncableTree<EstimationNode>>;
-  public faPlus = faPlus;
 
   constructor(private _sync: SyncableService) { }
 
@@ -22,7 +19,7 @@ export class EstimationComponent implements OnInit {
   }
 
   public addTopic(root: SyncableTree<EstimationNode>): void {
-    const operation: Operation = root.createChildAppend('Estimated Topic');
+    const operation: Operation = root.createChildAppend('');
     this._sync.sr.queueOperation(operation);
   }
 

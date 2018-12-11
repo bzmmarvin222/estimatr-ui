@@ -1,1 +1,9 @@
-<input type="text" [syncableText]="node" [class.border]="withBorder" [objectPath]="objectPath"/>
+<mat-form-field [style.fontSize]="fontSize">
+  <input
+    matInput
+    type="text"
+    [syncableText]="node"
+    [objectPath]="objectPath"
+    [placeholder]="placeholder"
+  />
+</mat-form-field>

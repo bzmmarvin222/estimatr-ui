@@ -11,7 +11,8 @@ export class EstimationTextComponent implements OnInit {
 
   @Input() public node: SyncableTree<any>;
   @Input() public objectPath: ObjectPath = [];
-  @Input() public withBorder = false;
+  @Input() public placeholder = '';
+  @Input() public fontSize = '1em';
 
   constructor() { }
 

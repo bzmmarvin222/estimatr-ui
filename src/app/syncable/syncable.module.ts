@@ -6,14 +6,19 @@ import {FormsModule} from '@angular/forms';
 import {EstimationComponent} from './estimation/estimation.component';
 import {TopicComponent} from './estimation/topic/topic.component';
 import {SingleEstimateComponent} from './estimation/topic/single-estimate/single-estimate.component';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { EstimationTextComponent } from './estimation/estimation-text/estimation-text.component';
+import {MatExpansionModule, MatIconModule, MatInputModule, MatTooltipModule} from "@angular/material";
+import {BrowserModule} from "@angular/platform-browser";
 
 @NgModule({
   imports: [
+    BrowserModule,
     CommonModule,
     FormsModule,
-    FontAwesomeModule
+    MatInputModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   declarations: [
     SyncableTextDirective,

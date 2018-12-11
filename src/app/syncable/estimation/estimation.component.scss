@@ -1,15 +1,15 @@
-@import "../../../colors";
+h3 {
+  display: flex;
+}
 
-.estimation_root {
-  padding: 20px;
+.actions {
+  flex-grow: 1;
+  padding-right: 10px;
+  text-align: right;
 
-  h2 {
-    display: flex;
-    border-bottom: 2px solid $border-color;
-
-    .add {
-      cursor: pointer;
-      margin-top: 6px;
-    }
+  mat-icon {
+    cursor: pointer;
+    position: relative;
+    top: 3px;
   }
 }

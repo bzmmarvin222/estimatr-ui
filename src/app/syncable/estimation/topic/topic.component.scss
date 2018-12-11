@@ -1,15 +1,9 @@
-@import "../../../../colors";
-
-.topic_header {
-  margin-top: 20px;
-
-  h3 {
-    display: flex;
-    border-bottom: 2px solid $border-color;
-
-    .add {
-      cursor: pointer;
-      margin-top: 5px;
-    }
+:host:not(:last-child) {
+  mat-expansion-panel {
+    margin-bottom: 20px;
   }
+}
+
+h4 {
+  margin: 0;
 }

@@ -1,10 +1,17 @@
-<div class="estimation_root default_padded" *ngIf="(estimation$ | async) as estimation; else notInitialized">
-  <h2>
-    <etmr-estimation-text [node]="estimation"></etmr-estimation-text>
-    <fa-icon class="add" [icon]="faPlus" size="xs" (click)="addTopic(estimation)"></fa-icon>
-  </h2>
+<div class="estimation_root" *ngIf="(estimation$ | async) as estimation; else notInitialized">
+  <etmr-estimation-text [node]="estimation" [placeholder]="'Project Name'" [fontSize]="'1.6em'"></etmr-estimation-text>
 
-  <etmr-topic *ngFor="let topic of estimation.children" [topicNode]="topic"></etmr-topic>
+  <h3>
+    Work item packages
+    <span class="actions">
+      <mat-icon (click)="addTopic(estimation)" matTooltip="Add package">create_new_folder</mat-icon>
+    </span>
+  </h3>
+
+  <etmr-topic
+    *ngFor="let topic of estimation.children"
+    [topicNode]="topic">
+  </etmr-topic>
 </div>
 
 <ng-template #notInitialized>

@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {Operation, SyncableTree} from 'sync_ot';
-import {EstimationLeaf, EstimationNode} from '../../models/estimation-node';
+import {EstimationLeaf, EstimationNode} from '../../shared/estimation-node';
 import {SyncableService} from '../../services/syncable.service';
 
 @Component({
@@ -11,7 +10,6 @@ import {SyncableService} from '../../services/syncable.service';
 })
 export class TopicComponent implements OnInit {
   @Input() public topicNode: SyncableTree<EstimationNode>;
-  public faPlus = faPlus;
 
   constructor(private _sync: SyncableService) { }
 
