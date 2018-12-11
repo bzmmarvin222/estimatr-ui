@@ -1,22 +1,13 @@
-<!--<div class="topic_header">-->
-  <!--<etmr-estimation-text-->
-    <!--[node]="topicNode"-->
-    <!--[placeholder]="'Work Item Package'"-->
-    <!--[fontSize]="'1.4em'"-->
-  <!--&gt;</etmr-estimation-text>-->
-<!--</div>-->
-
-
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <h4>{{topicNode.data}}</h4>
-      </mat-panel-title>
-      <!--<mat-panel-description>-->
-        <!--<span class="edit">-->
-          <!--<mat-icon>edit</mat-icon>-->
-        <!--</span>-->
-      <!--</mat-panel-description>-->
-    </mat-expansion-panel-header>
-    <etmr-single-estimate *ngFor="let single of topicNode.children" [singleEstimate]="single"></etmr-single-estimate>
-  </mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <h4>{{topicNode.data}}</h4>
+    </mat-panel-title>
+    <!--<mat-panel-description>-->
+    <!--<span class="edit">-->
+    <!--<mat-icon>edit</mat-icon>-->
+    <!--</span>-->
+    <!--</mat-panel-description>-->
+  </mat-expansion-panel-header>
+  <etmr-single-estimate *ngFor="let single of topicNode.children" [singleEstimate]="single"></etmr-single-estimate>
+</mat-expansion-panel>
