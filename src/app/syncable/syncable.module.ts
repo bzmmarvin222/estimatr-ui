@@ -7,18 +7,21 @@ import {EstimationComponent} from './estimation/estimation.component';
 import {TopicComponent} from './estimation/topic/topic.component';
 import {SingleEstimateComponent} from './estimation/topic/single-estimate/single-estimate.component';
 import { EstimationTextComponent } from './estimation/estimation-text/estimation-text.component';
-import {MatExpansionModule, MatIconModule, MatInputModule, MatTooltipModule} from "@angular/material";
+import {MatDialogModule, MatExpansionModule, MatIconModule, MatInputModule, MatTooltipModule} from "@angular/material";
 import {BrowserModule} from "@angular/platform-browser";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    SharedModule,
     MatInputModule,
     MatExpansionModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   declarations: [
     SyncableTextDirective,
