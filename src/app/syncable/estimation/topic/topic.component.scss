@@ -7,3 +7,14 @@
 h4 {
   margin: 0;
 }
+
+.toolbar {
+  mat-icon {
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+  text-align: right;
+}

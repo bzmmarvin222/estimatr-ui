@@ -4,5 +4,14 @@
       <h4>{{topicNode.data}}</h4>
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <etmr-single-estimate *ngFor="let single of topicNode.children" [singleEstimate]="single"></etmr-single-estimate>
+
+  <div class="toolbar">
+    <mat-icon matTooltip="Rename this item" (click)="rename()">edit</mat-icon>
+    <mat-icon matTooltip="Add task" (click)="addSingleEstimate()">add_box</mat-icon>
+  </div>
+
+  <etmr-single-estimate
+    *ngFor="let single of topicNode.children"
+    [singleEstimate]="single">
+  </etmr-single-estimate>
 </mat-expansion-panel>
