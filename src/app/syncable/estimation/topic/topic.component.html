@@ -3,11 +3,6 @@
     <mat-panel-title>
       <h4>{{topicNode.data}}</h4>
     </mat-panel-title>
-    <!--<mat-panel-description>-->
-    <!--<span class="edit">-->
-    <!--<mat-icon>edit</mat-icon>-->
-    <!--</span>-->
-    <!--</mat-panel-description>-->
   </mat-expansion-panel-header>
   <etmr-single-estimate *ngFor="let single of topicNode.children" [singleEstimate]="single"></etmr-single-estimate>
 </mat-expansion-panel>
