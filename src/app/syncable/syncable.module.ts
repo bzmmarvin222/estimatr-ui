@@ -10,6 +10,7 @@ import { EstimationTextComponent } from './estimation/estimation-text/estimation
 import {MatDialogModule, MatExpansionModule, MatIconModule, MatInputModule, MatTooltipModule} from "@angular/material";
 import {BrowserModule} from "@angular/platform-browser";
 import {SharedModule} from "../shared/shared.module";
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {SharedModule} from "../shared/shared.module";
     MatExpansionModule,
     MatIconModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    DragDropModule
   ],
   declarations: [
     SyncableTextDirective,

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {Operation, SyncableTree} from 'sync_ot';
 import {EstimationLeaf, EstimationNode} from '../../shared/estimation-node';
 import {SyncableService} from '../../services/syncable.service';
@@ -9,6 +9,7 @@ import {SyncableService} from '../../services/syncable.service';
   styleUrls: ['./topic.component.scss']
 })
 export class TopicComponent implements OnInit {
+  @HostBinding('class.accordion')
   @Input() public topicNode: SyncableTree<EstimationNode>;
 
   constructor(private _sync: SyncableService) { }

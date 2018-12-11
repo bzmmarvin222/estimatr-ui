@@ -28,3 +28,13 @@ h5 {
 h6 {
   font-size: 1.1em;
 }
+
+.mat-accordion .accordion-wrapper:not(:last-child) .accordion .mat-expansion-panel:not(.mat-expanded) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.mat-accordion .accordion-wrapper:not(:first-child) .accordion .mat-expansion-panel:not(.mat-expanded) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

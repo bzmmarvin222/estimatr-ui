@@ -8,10 +8,15 @@
     </span>
   </h3>
 
-  <etmr-topic
-    *ngFor="let topic of estimation.children"
-    [topicNode]="topic">
-  </etmr-topic>
+  <mat-accordion class="drop_list" cdkDropList multi="true">
+    <div class="accordion-wrapper" cdkDrag *ngFor="let topic of estimation.children">
+
+      <etmr-topic
+        [topicNode]="topic">
+      </etmr-topic>
+
+    </div>
+  </mat-accordion>
 </div>
 
 <ng-template #notInitialized>
