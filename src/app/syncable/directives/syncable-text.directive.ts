@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {SyncableService} from '../services/syncable.service';
-import {Operation, SyncableTree} from 'sync_ot';
-import {ObjectPath} from "sync_ot/dist/operation/object-traversing-util";
+import {ObjectPath, Operation, SyncableTree} from 'sync_ot';
+import {Subscription} from "rxjs";
 
 @Directive({
   selector: '[syncableText]'
@@ -13,7 +13,7 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
   @Input() onlyNumbers: boolean = false;
 
   private _inputElement: HTMLInputElement;
-  private _subscription;
+  private _subscription: Subscription;
 
   constructor(private _el: ElementRef,
               private _sync: SyncableService) {
