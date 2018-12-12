@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-demo-server": "node ./src_demo_server/index.js",
     "start-local-network": "ng serve --host=0.0.0.0",
     "build": "ng build",
     "test": "ng test",
