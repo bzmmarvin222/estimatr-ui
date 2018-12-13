@@ -12,7 +12,7 @@ import {Subscription} from "rxjs";
 })
 export class EstimationDropdownComponent implements OnInit, OnDestroy {
 
-  private _sub: Subscription;
+  private _sub;
 
   public currentValue: any;
   @Input() public node: SyncableTree<any>;

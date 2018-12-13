@@ -12,13 +12,16 @@ import {
   MatExpansionModule,
   MatIconModule,
   MatInputModule,
-  MatSelectModule,
+  MatSelectModule, MatToolbarModule,
   MatTooltipModule
 } from "@angular/material";
 import {BrowserModule} from "@angular/platform-browser";
 import {SharedModule} from "../shared/shared.module";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import { EstimationDropdownComponent } from './estimation/estimation-dropdown/estimation-dropdown.component';
+import { EstimationResultComponent } from './estimation/estimation-result/estimation-result.component';
+import { RiskControlsComponent } from './estimation/estimation-result/risk-controls/risk-controls.component';
+import { EstimationTreeSumPipe } from './pipes/estimation-tree-sum.pipe';
 
 @NgModule({
   imports: [
@@ -32,7 +35,8 @@ import { EstimationDropdownComponent } from './estimation/estimation-dropdown/es
     MatTooltipModule,
     MatDialogModule,
     DragDropModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule,
   ],
   declarations: [
     SyncableTextDirective,
@@ -40,13 +44,15 @@ import { EstimationDropdownComponent } from './estimation/estimation-dropdown/es
     TopicComponent,
     SingleEstimateComponent,
     EstimationTextComponent,
-    EstimationDropdownComponent
+    EstimationDropdownComponent,
+    EstimationResultComponent,
+    RiskControlsComponent,
+    EstimationTreeSumPipe
   ],
   providers: [
     SyncableService
   ],
   exports: [
-    SyncableTextDirective,
     EstimationComponent
   ]
 })

@@ -1,3 +1,5 @@
+import {Risk} from "./risk";
+
 export interface EstimationLeaf {
   taskDescription: string;
   effortInManDays: number;
@@ -7,7 +9,3 @@ export interface EstimationLeaf {
 export type EstimationDescription = string;
 
 export type EstimationNode = EstimationDescription | EstimationLeaf;
-
-export type Risk = 'low' | 'moderate' | 'high' | 'showstopper';
-
-

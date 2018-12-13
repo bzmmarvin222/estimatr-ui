@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Operation, SyncableTree} from 'sync_ot';
 import {EstimationLeaf} from '../../../shared/estimation';
-import {RiskDrowndownValues} from "../../../shared/dropdown";
+import {RiskDrowndownValues} from "../../../shared/risk";
 import {SyncableService} from "../../../services/syncable.service";
 
 @Component({

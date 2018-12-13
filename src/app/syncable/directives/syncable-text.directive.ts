@@ -21,7 +21,7 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._inputElement = this._el.nativeElement as HTMLInputElement;
-    this._inputElement.addEventListener('input', evt => this.handleInput(evt as InputEvent));
+    this._inputElement.addEventListener('input', evt => this.handleInput(evt));
     this.subscribe();
   }
 
@@ -40,14 +40,14 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
     this._subscription = toSubscribe$.subscribe(data => this._inputElement.value = data);
   }
 
-  private handleInput(event: InputEvent): void {
+  private handleInput(event): void {
     // TODO: no full replacement
     this.sanitizeNumbers(event);
     const operation: Operation = this.syncableText.createReplacement(this._inputElement.value, ...this.objectPath);
     this._sync.sr.queueOperation(operation);
   }
 
-  private sanitizeNumbers(input: InputEvent): void {
+  private sanitizeNumbers(input): void {
     if (this.onlyNumbers && !NUMBER_REGEX.test(input.data)) {
       this._inputElement.value = this._inputElement.value.replace(REPLACE_REGEX, '');
     }
