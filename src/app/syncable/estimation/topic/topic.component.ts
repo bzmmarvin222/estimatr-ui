@@ -1,6 +1,6 @@
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {Operation, SyncableTree} from 'sync_ot';
-import {EstimationDescription, EstimationLeaf, EstimationNode} from '../../shared/estimation-node';
+import {EstimationDescription, EstimationLeaf, EstimationNode} from '../../shared/estimation';
 import {SyncableService} from '../../services/syncable.service';
 import {PromptDialog} from "../../../shared/models/dialog";
 import {PromptDialogComponent} from "../../../shared/prompt-dialog/prompt-dialog.component";
@@ -23,7 +23,7 @@ export class TopicComponent implements OnInit {
   }
 
   public addSingleEstimate(): void {
-    const estimate: EstimationLeaf = {effortInManDays: 0, taskDescription: '', risk: 'moderate'};
+    const estimate: EstimationLeaf = {effortInManDays: null, taskDescription: '', risk: 'moderate'};
     const operation: Operation = this.topicNode.createChildAppend(estimate);
     this._sync.sr.queueOperation(operation);
   }

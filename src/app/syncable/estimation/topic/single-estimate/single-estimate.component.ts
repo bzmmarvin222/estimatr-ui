@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SyncableTree} from 'sync_ot';
-import {EstimationLeaf} from '../../../shared/estimation-node';
+import {Operation, SyncableTree} from 'sync_ot';
+import {EstimationLeaf} from '../../../shared/estimation';
+import {RiskDrowndownValues} from "../../../shared/dropdown";
+import {SyncableService} from "../../../services/syncable.service";
 
 @Component({
   selector: 'etmr-single-estimate',
@@ -8,13 +10,17 @@ import {EstimationLeaf} from '../../../shared/estimation-node';
   styleUrls: ['./single-estimate.component.scss']
 })
 export class SingleEstimateComponent implements OnInit {
-  // TODO: syncable tree data tree must be extensible
   @Input() singleEstimate: SyncableTree<EstimationLeaf>;
+  public riskOptions = RiskDrowndownValues;
 
-  constructor() { }
+  constructor(private _sync: SyncableService) { }
 
   ngOnInit() {
-    // this.singleEstimate.
+  }
+
+  public delete(): void {
+    const operation: Operation = this.singleEstimate.createNodeDeletion();
+    this._sync.sr.queueOperation(operation);
   }
 
 }

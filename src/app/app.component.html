@@ -4,24 +4,5 @@
   <etmr-estimation class="root">
   </etmr-estimation>
 
-  <pre style="max-height: 200px; overflow-y: scroll;">
-    {{(data$ | async)?.toNonRecursive() | json}}
-  </pre>
-
-  <div *ngIf="(data$ | async) as root">
-    <button (click)="addToChild(root)">Add</button>
-  </div>
-
   <etmr-footer></etmr-footer>
 </main>
-
-
-<!--<div *ngFor="let child of (data$ | async)?.children">-->
-<!--<input [syncableText]="child" [(ngModel)]="child.data" (change)="change($event)">-->
-<!--<button (click)="addToChild(child)">{{child?.dataChanges$ | async}}</button>-->
-
-<!--<div *ngFor="let innerChild of child.children" style="margin-left: 40px;">-->
-<!--<input [syncableText]="innerChild" [(ngModel)]="innerChild.data">-->
-<!--<button (click)="rmChild(innerChild)">Remove</button>-->
-<!--</div>-->
-<!--</div>-->

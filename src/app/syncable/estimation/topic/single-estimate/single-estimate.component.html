@@ -1,2 +1,33 @@
-<etmr-estimation-text [node]="singleEstimate" [objectPath]="['taskDescription']"></etmr-estimation-text>
-<etmr-estimation-text [node]="singleEstimate" [objectPath]="['effortInManDays']"></etmr-estimation-text>
+<div class="estimation-line">
+  <div class="estimation-description" [matTooltip]="singleEstimate.data.taskDescription" matTooltipShowDelay="2500">
+    <etmr-estimation-text
+      [node]="singleEstimate"
+      [objectPath]="['taskDescription']"
+      [placeholder]="'Task description'"
+    >
+
+    </etmr-estimation-text>
+  </div>
+
+  <div class="estimation-risk">
+    <etmr-estimation-dropdown
+      [node]="singleEstimate"
+      [placeholder]="'Risk'"
+      [options]="riskOptions"
+      [objectPath]="['risk']"
+    >
+
+    </etmr-estimation-dropdown>
+  </div>
+
+  <div class="estimation-effort">
+    <etmr-estimation-text
+      [node]="singleEstimate"
+      [objectPath]="['effortInManDays']"
+      [placeholder]="'Effort (in man days)'"
+    >
+
+    </etmr-estimation-text>
+  </div>
+  <mat-icon class="delete-icon" matTooltip="Delete this item" (click)="delete()">delete</mat-icon>
+</div>

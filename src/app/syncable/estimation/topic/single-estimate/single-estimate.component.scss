@@ -1,0 +1,33 @@
+:host:first-of-type {
+  .estimation-line {
+    margin-top: 20px;
+  }
+}
+
+.estimation-line {
+  display: flex;
+  justify-content: space-between;
+
+  .estimation-effort,
+  .estimation-risk {
+    margin-left: 10px;
+  }
+
+  .estimation-description {
+    flex-grow: 1;
+  }
+
+  .estimation-effort {
+    flex-grow: unset;
+    width: 130px;
+  }
+
+  .estimation-risk {
+    flex-grow: unset;
+  }
+
+  .delete-icon {
+    margin-top: 10px;
+    cursor: pointer;
+  }
+}

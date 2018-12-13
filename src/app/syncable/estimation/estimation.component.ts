@@ -1,12 +1,12 @@
-import {Component, HostBinding, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SyncableService} from '../services/syncable.service';
 import {Observable} from 'rxjs';
 import {Operation, SyncableTree} from 'sync_ot';
-import {EstimationNode} from '../shared/estimation-node';
 import {MatDialog} from "@angular/material";
 import {PromptDialogComponent} from "../../shared/prompt-dialog/prompt-dialog.component";
 import {PromptDialog} from "../../shared/models/dialog";
 import {take} from "rxjs/operators";
+import {EstimationNode} from "../shared/estimation";
 
 @Component({
   selector: 'etmr-estimation',

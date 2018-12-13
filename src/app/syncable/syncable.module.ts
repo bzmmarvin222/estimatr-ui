@@ -7,10 +7,18 @@ import {EstimationComponent} from './estimation/estimation.component';
 import {TopicComponent} from './estimation/topic/topic.component';
 import {SingleEstimateComponent} from './estimation/topic/single-estimate/single-estimate.component';
 import { EstimationTextComponent } from './estimation/estimation-text/estimation-text.component';
-import {MatDialogModule, MatExpansionModule, MatIconModule, MatInputModule, MatTooltipModule} from "@angular/material";
+import {
+  MatDialogModule,
+  MatExpansionModule,
+  MatIconModule,
+  MatInputModule,
+  MatSelectModule,
+  MatTooltipModule
+} from "@angular/material";
 import {BrowserModule} from "@angular/platform-browser";
 import {SharedModule} from "../shared/shared.module";
 import {DragDropModule} from "@angular/cdk/drag-drop";
+import { EstimationDropdownComponent } from './estimation/estimation-dropdown/estimation-dropdown.component';
 
 @NgModule({
   imports: [
@@ -23,14 +31,16 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    DragDropModule
+    DragDropModule,
+    MatSelectModule
   ],
   declarations: [
     SyncableTextDirective,
     EstimationComponent,
     TopicComponent,
     SingleEstimateComponent,
-    EstimationTextComponent
+    EstimationTextComponent,
+    EstimationDropdownComponent
   ],
   providers: [
     SyncableService

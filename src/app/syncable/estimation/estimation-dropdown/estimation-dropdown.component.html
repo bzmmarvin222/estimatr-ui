@@ -1,0 +1,7 @@
+<mat-form-field [style.fontSize]="fontSize">
+  <mat-select [placeholder]="placeholder" (selectionChange)="onValueChange($event)" [(value)]="currentValue">
+    <mat-option *ngFor="let opt of options" [value]="opt.technicalValue">
+      {{opt.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
