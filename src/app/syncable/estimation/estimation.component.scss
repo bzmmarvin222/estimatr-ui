@@ -34,6 +34,10 @@ h3 {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-//.drop_list.cdk-drop-list-dragging .accordion-wrapper.cdk-drag-placeholder {
-//  transition: transform 50ms cubic-bezier(0, 0, 0.2, 1);
-//}
+.drag-handle {
+  position: relative;
+  left: -4px;
+  top: 1px;
+  display: inline-block;
+  cursor: move;
+}

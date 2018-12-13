@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostBinding, HostListener, OnInit} from '@angular/core';
 import {SyncableService} from '../services/syncable.service';
 import {Observable} from 'rxjs';
 import {Operation, SyncableTree} from 'sync_ot';
