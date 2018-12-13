@@ -23,8 +23,13 @@ export class TopicComponent implements OnInit {
   }
 
   public addSingleEstimate(): void {
-    const estimate: EstimationLeaf = {effortInManDays: 0, taskDescription: ''};
+    const estimate: EstimationLeaf = {effortInManDays: 0, taskDescription: '', risk: 'moderate'};
     const operation: Operation = this.topicNode.createChildAppend(estimate);
+    this._sync.sr.queueOperation(operation);
+  }
+
+  public delete(): void {
+    const operation: Operation = this.topicNode.createNodeDeletion();
     this._sync.sr.queueOperation(operation);
   }
 

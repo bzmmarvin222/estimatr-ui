@@ -1,6 +1,6 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SyncableTree} from 'sync_ot';
-import {EstimationLeaf, EstimationNode} from '../../../shared/estimation-node';
+import {EstimationLeaf} from '../../../shared/estimation-node';
 
 @Component({
   selector: 'etmr-single-estimate',

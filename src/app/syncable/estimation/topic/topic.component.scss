@@ -12,6 +12,7 @@ h4 {
 .toolbar {
   mat-icon {
     cursor: pointer;
+    user-select: none;
 
     &:not(:last-child) {
       margin-right: 5px;
