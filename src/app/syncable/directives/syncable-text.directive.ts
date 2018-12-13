@@ -10,7 +10,6 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
 
   @Input() syncableText: SyncableTree<any>;
   @Input() objectPath: ObjectPath = [];
-  @Input() onlyNumbers: boolean = false;
 
   private _inputElement: HTMLInputElement;
   private _subscription: Subscription;
@@ -42,17 +41,8 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
 
   private handleInput(event): void {
     // TODO: no full replacement
-    this.sanitizeNumbers(event);
     const operation: Operation = this.syncableText.createReplacement(this._inputElement.value, ...this.objectPath);
     this._sync.sr.queueOperation(operation);
   }
 
-  private sanitizeNumbers(input): void {
-    if (this.onlyNumbers && !NUMBER_REGEX.test(input.data)) {
-      this._inputElement.value = this._inputElement.value.replace(REPLACE_REGEX, '');
-    }
-  }
 }
-
-const NUMBER_REGEX: RegExp = /^[0-9]*$/;
-const REPLACE_REGEX: RegExp = /[^0-9,]/g;

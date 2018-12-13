@@ -1,10 +1,9 @@
 <mat-form-field [style.fontSize]="fontSize">
   <input
     matInput
-    type="text"
+    [type]="type"
     [syncableText]="node"
     [objectPath]="objectPath"
     [placeholder]="placeholder"
-    [onlyNumbers]="onlyNumbers"
   />
 </mat-form-field>

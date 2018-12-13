@@ -13,7 +13,7 @@ export class EstimationTextComponent implements OnInit {
   @Input() public objectPath: ObjectPath = [];
   @Input() public placeholder = '';
   @Input() public fontSize = '1em';
-  @Input() public onlyNumbers: boolean;
+  @Input() public type: string = 'text';
 
   constructor() { }
 
