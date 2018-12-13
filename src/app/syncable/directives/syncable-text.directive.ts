@@ -21,8 +21,12 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._inputElement = this._el.nativeElement as HTMLInputElement;
-    this._inputElement.addEventListener('input', evt => this.handleInput(evt));
+    this._inputElement.addEventListener('input', evt => this.handleInput(evt as InputEvent));
     this.subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this._subscription.unsubscribe();
   }
 
   private subscribe(): void {
@@ -36,13 +40,19 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
     this._subscription = toSubscribe$.subscribe(data => this._inputElement.value = data);
   }
 
-  private handleInput(event): void {
+  private handleInput(event: InputEvent): void {
     // TODO: no full replacement
+    this.sanitizeNumbers(event);
     const operation: Operation = this.syncableText.createReplacement(this._inputElement.value, ...this.objectPath);
     this._sync.sr.queueOperation(operation);
   }
 
-  ngOnDestroy(): void {
-    this._subscription.unsubscribe();
+  private sanitizeNumbers(input: InputEvent): void {
+    if (this.onlyNumbers && !NUMBER_REGEX.test(input.data)) {
+      this._inputElement.value = this._inputElement.value.replace(REPLACE_REGEX, '');
+    }
   }
 }
+
+const NUMBER_REGEX: RegExp = /^[0-9]*$/;
+const REPLACE_REGEX: RegExp = /[^0-9,]/g;
