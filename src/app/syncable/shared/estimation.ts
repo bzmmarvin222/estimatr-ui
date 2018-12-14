@@ -1,4 +1,4 @@
-import {Risk} from "./risk";
+import {Risk, RiskFactors} from "./risk";
 
 export interface EstimationLeaf {
   taskDescription: string;
@@ -6,6 +6,11 @@ export interface EstimationLeaf {
   risk: Risk;
 }
 
+export interface EstimationRoot {
+  projectTitle: string;
+  riskFactors: RiskFactors;
+}
+
 export type EstimationDescription = string;
 
-export type EstimationNode = EstimationDescription | EstimationLeaf;
+export type EstimationNode = EstimationRoot | EstimationDescription | EstimationLeaf;

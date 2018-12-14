@@ -1,9 +1,9 @@
 <mat-toolbar color="secondary">
   <mat-toolbar-row>
-    <h1 class="effort">Estimated effort for {{estimationTree.data}}</h1>
-    <h1 matTooltip="Man Days - The equivalent of one persons's working time in days required to get a task done.">{{estimationTree | estimationTreeSum:riskFactors}} MD</h1>
+    <h1 class="effort">Estimated effort for {{root.data}}</h1>
+    <h1 matTooltip="Man Days - The equivalent of one persons's working time in days required to get a task done.">{{root | estimationTreeSum:riskFactors}} MD</h1>
   </mat-toolbar-row>
   <mat-toolbar-row [style.height]="'90px'">
-    <etmr-risk-controls [riskFactors]="riskFactors"></etmr-risk-controls>
+    <etmr-risk-controls [root]="root"></etmr-risk-controls>
   </mat-toolbar-row>
 </mat-toolbar>

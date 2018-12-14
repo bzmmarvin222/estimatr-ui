@@ -1,8 +1,8 @@
 <div class="estimation_root" *ngIf="(estimation$ | async) as estimation; else notInitialized">
 
-  <etmr-estimation-result [estimationTree]="estimation"></etmr-estimation-result>
+  <etmr-estimation-result [root]="estimation"></etmr-estimation-result>
 
-  <etmr-estimation-text [node]="estimation" [placeholder]="'Project Name'" [fontSize]="'1.6em'"></etmr-estimation-text>
+  <etmr-estimation-text [node]="estimation" [placeholder]="'Project Name'" [fontSize]="'1.6em'" [objectPath]="['projectTitle']"></etmr-estimation-text>
 
   <h3>
     Work item packages

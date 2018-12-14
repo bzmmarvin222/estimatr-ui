@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SyncableTree} from "sync_ot";
-import {EstimationNode} from "../../shared/estimation";
+import {EstimationNode, EstimationRoot} from "../../shared/estimation";
 import {RiskFactors} from "../../shared/risk";
 
 @Component({
@@ -10,12 +10,14 @@ import {RiskFactors} from "../../shared/risk";
 })
 export class EstimationResultComponent implements OnInit {
 
-  @Input() public estimationTree: SyncableTree<EstimationNode>;
+  @Input() public root: SyncableTree<EstimationNode>;
   public riskFactors: RiskFactors = {low: 1, moderate: 1.5, high: 2, showstopper: 99};
 
   constructor() { }
 
   ngOnInit() {
+    const rootData = this.root.data as EstimationRoot;
+    this.riskFactors = rootData.riskFactors;
   }
 
 }

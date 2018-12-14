@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RiskFactors} from "../../../shared/risk";
+import {SyncableTree} from "sync_ot";
+import {EstimationRoot} from "../../../shared/estimation";
 
 @Component({
   selector: 'etmr-risk-controls',
@@ -8,7 +9,7 @@ import {RiskFactors} from "../../../shared/risk";
 })
 export class RiskControlsComponent implements OnInit {
 
-  @Input() public riskFactors: RiskFactors;
+  @Input() public root: SyncableTree<EstimationRoot>;
 
   constructor() { }
 

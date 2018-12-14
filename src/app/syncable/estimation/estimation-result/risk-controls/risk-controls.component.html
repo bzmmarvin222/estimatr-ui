@@ -1,38 +1,42 @@
 <div class="risk-controls">
-  <mat-form-field>
-    <input
-      matInput
-      type="number"
-      placeholder="Low risk"
-      [(ngModel)]="riskFactors.low"
-    />
-  </mat-form-field>
 
-  <mat-form-field>
-    <input
-      matInput
-      type="number"
-      placeholder="Moderate risk"
-      [(ngModel)]="riskFactors.moderate"
-    />
-  </mat-form-field>
+  <etmr-estimation-text
+    class="no-flex-grow"
+    [node]="root"
+    [objectPath]="['riskFactors', 'low']"
+    [placeholder]="'Low risk'"
+    [type]="'number'"
+  >
 
-  <mat-form-field>
-    <input
-      matInput
-      type="number"
-      placeholder="High risk"
-      [(ngModel)]="riskFactors.high"
-    />
-  </mat-form-field>
+  </etmr-estimation-text>
 
-  <mat-form-field>
-    <input
-      matInput
-      type="number"
-      placeholder="Showstopping risk"
-      [(ngModel)]="riskFactors.showstopper"
-    />
-  </mat-form-field>
+  <etmr-estimation-text
+    class="no-flex-grow"
+    [node]="root"
+    [objectPath]="['riskFactors', 'moderate']"
+    [placeholder]="'Moderate risk'"
+    [type]="'number'"
+  >
 
+  </etmr-estimation-text>
+
+  <etmr-estimation-text
+    class="no-flex-grow"
+    [node]="root"
+    [objectPath]="['riskFactors', 'high']"
+    [placeholder]="'High risk'"
+    [type]="'number'"
+  >
+
+  </etmr-estimation-text>
+
+  <etmr-estimation-text
+    class="no-flex-grow"
+    [node]="root"
+    [objectPath]="['riskFactors', 'showstopper']"
+    [placeholder]="'Showstopping risk'"
+    [type]="'number'"
+  >
+
+  </etmr-estimation-text>
 </div>

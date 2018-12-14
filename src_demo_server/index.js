@@ -11,7 +11,7 @@ const wsServer = new WebSocketServer({
 const connections = [];
 const Sync = require('sync_ot');
 const handler = new Sync.ServerHandler();
-const res = new Sync.SyncableResource(handler, 'Test');
+const res = new Sync.SyncableResource(handler, {projectTitle: 'Test', riskFactors: {low: 1, moderate: 1.5, high: 2, showstopper: 99}});
 
 console.log('Demo Server listening on Port 1337');
 wsServer.on('request', function(request) {

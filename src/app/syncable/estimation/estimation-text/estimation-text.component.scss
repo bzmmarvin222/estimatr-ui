@@ -2,6 +2,10 @@
   flex-grow: 1;
 }
 
+:host.no-flex-grow {
+  flex-grow: unset;
+}
+
 mat-form-field {
   width: 100%;
 }
