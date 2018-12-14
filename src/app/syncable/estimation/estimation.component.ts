@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {SyncableService} from '../services/syncable.service';
 import {Observable} from 'rxjs';
 import {Operation, SyncableTree} from 'sync_ot';
@@ -14,6 +14,8 @@ import {EstimationNode} from "../shared/estimation";
   styleUrls: ['./estimation.component.scss']
 })
 export class EstimationComponent implements OnInit {
+  @HostBinding('class.root')
+
   public estimation$: Observable<SyncableTree<EstimationNode>>;
 
   constructor(private _sync: SyncableService,

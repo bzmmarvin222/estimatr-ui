@@ -3,15 +3,13 @@ import { SyncableResource, SyncableTree, WebSocketHandler} from "sync_ot";
 import {Observable} from "rxjs";
 import {EstimationNode} from "../shared/estimation";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SyncableService {
   private readonly _tree$;
   private readonly _sr: SyncableResource<EstimationNode>;
 
   constructor() {
-    const handler = new WebSocketHandler('ws://localhost:1337/');
+    const handler = new WebSocketHandler('ws://localhost:3000');
     this._sr = new SyncableResource(handler);
     this._tree$ = this._sr.getTree$();
   }

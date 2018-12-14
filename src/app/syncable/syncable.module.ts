@@ -22,10 +22,12 @@ import { EstimationDropdownComponent } from './estimation/estimation-dropdown/es
 import { EstimationResultComponent } from './estimation/estimation-result/estimation-result.component';
 import { RiskControlsComponent } from './estimation/estimation-result/risk-controls/risk-controls.component';
 import { EstimationTreeSumPipe } from './pipes/estimation-tree-sum.pipe';
+import {RouterModule} from '@angular/router';
+import {SyncableRoutes} from './syncable-routes';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    RouterModule.forChild(SyncableRoutes),
     CommonModule,
     FormsModule,
     SharedModule,
