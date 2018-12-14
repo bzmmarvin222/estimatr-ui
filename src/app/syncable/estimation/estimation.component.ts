@@ -14,7 +14,7 @@ import {EstimationNode} from "../shared/estimation";
   styleUrls: ['./estimation.component.scss']
 })
 export class EstimationComponent implements OnInit {
-  @HostBinding('class.root')
+  @HostBinding('class.root') true;
 
   public estimation$: Observable<SyncableTree<EstimationNode>>;
 
