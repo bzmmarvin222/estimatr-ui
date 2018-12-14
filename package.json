@@ -31,7 +31,7 @@
     "core-js": "^2.5.4",
     "reset-css": "^4.0.1",
     "rxjs": "~6.2.0",
-    "sync_ot": "file:../../otts",
+    "sync_ot": "file:../sync_ot",
     "websocket": "^1.0.28",
     "zone.js": "~0.8.26"
   },
