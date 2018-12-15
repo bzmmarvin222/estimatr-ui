@@ -1,23 +1,24 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {SyncableService} from '../services/syncable.service';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {Operation, SyncableTree} from 'sync_ot';
 import {MatDialog} from '@angular/material';
 import {PromptDialogComponent} from '../../shared/modals-popups/prompt-dialog/prompt-dialog.component';
 import {PromptDialog} from '../../shared/models/dialog';
 import {take} from 'rxjs/operators';
 import {EstimationNode} from '../shared/estimation';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'etmr-estimation',
   templateUrl: './estimation.component.html',
   styleUrls: ['./estimation.component.scss']
 })
-export class EstimationComponent implements OnInit {
+export class EstimationComponent implements OnInit, OnDestroy {
   @HostBinding('class.root') true;
 
   public estimation$: Observable<SyncableTree<EstimationNode>>;
+  private _sub: Subscription;
 
   constructor(private _sync: SyncableService,
               private _dialog: MatDialog,
@@ -25,8 +26,11 @@ export class EstimationComponent implements OnInit {
   }
 
   ngOnInit() {
-    const sessionId: string = this._route.snapshot.params['sessionId'];
-    this.estimation$ = this._sync.joinSession(sessionId);
+    this._sub = this._route.params.subscribe((params: Params) => {
+      const sessionId: string = params['sessionId'];
+      this.estimation$ = this._sync.joinSession(sessionId);
+    });
+
   }
 
   public addTopic(root: SyncableTree<EstimationNode>): void {
@@ -50,5 +54,9 @@ export class EstimationComponent implements OnInit {
   public queueNewTopic(topic: EstimationNode, root: SyncableTree<EstimationNode>): void {
     const operation: Operation = root.createChildAppend(topic);
     this._sync.sr.queueOperation(operation);
+  }
+
+  ngOnDestroy(): void {
+    this._sub.unsubscribe();
   }
 }

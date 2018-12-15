@@ -17,3 +17,7 @@ h1 {
     text-decoration: none;
   }
 }
+
+button:not(:last-child) {
+  margin-right: 10px;
+}

@@ -18,4 +18,8 @@ export class HeaderComponent implements OnInit {
     this._projectCreation.initProjectCreation();
   }
 
+  public joinSession(): void {
+    this._projectCreation.switchSession();
+  }
+
 }

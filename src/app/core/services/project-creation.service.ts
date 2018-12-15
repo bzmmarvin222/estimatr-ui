@@ -15,6 +15,19 @@ export class ProjectCreationService {
               private _router: Router) {
   }
 
+  public switchSession(): void {
+    this._prompt.prompt$({
+      header: 'Enter session id',
+      description: 'Please enter the sessions id.',
+      promptData: '',
+      placeholder: 'Session id'
+    }).subscribe((sessionId: string | undefined) => {
+      if (sessionId) {
+        this.joinSession(sessionId);
+      }
+    });
+  }
+
   public initProjectCreation(): void {
     this._prompt.prompt$({
       header: 'Enter project name',
@@ -40,7 +53,11 @@ export class ProjectCreationService {
     };
     this._http.put<SessionCreatedDto>('api/estimation', body)
       .subscribe((dto: SessionCreatedDto) => {
-        this._router.navigate(['/estimate', dto.sessionId]);
+        this.joinSession(dto.sessionId);
       });
+  }
+
+  private joinSession(sessionId: string): void {
+    this._router.navigate(['/estimate', sessionId]);
   }
 }
