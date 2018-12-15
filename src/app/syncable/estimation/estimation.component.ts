@@ -7,6 +7,7 @@ import {PromptDialogComponent} from '../../shared/modals-popups/prompt-dialog/pr
 import {PromptDialog} from '../../shared/models/dialog';
 import {take} from 'rxjs/operators';
 import {EstimationNode} from '../shared/estimation';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'etmr-estimation',
@@ -19,11 +20,13 @@ export class EstimationComponent implements OnInit {
   public estimation$: Observable<SyncableTree<EstimationNode>>;
 
   constructor(private _sync: SyncableService,
-              private _dialog: MatDialog) {
+              private _dialog: MatDialog,
+              private _route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.estimation$ = this._sync.tree$;
+    const sessionId: string = this._route.snapshot.params['sessionId'];
+    this.estimation$ = this._sync.joinSession(sessionId);
   }
 
   public addTopic(root: SyncableTree<EstimationNode>): void {

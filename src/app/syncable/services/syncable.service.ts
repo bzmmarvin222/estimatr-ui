@@ -5,13 +5,17 @@ import {EstimationNode} from '../shared/estimation';
 
 @Injectable()
 export class SyncableService {
-  private readonly _tree$;
-  private readonly _sr: SyncableResource<EstimationNode>;
+  private _tree$;
+  private _sr: SyncableResource<EstimationNode>;
 
   constructor() {
-    const handler = new WebSocketHandler('ws://localhost:3000');
+  }
+
+  public joinSession(sessionId: string): Observable<SyncableTree<EstimationNode>> {
+    const handler = new WebSocketHandler('ws://localhost:3000', sessionId);
     this._sr = new SyncableResource(handler);
     this._tree$ = this._sr.getTree$();
+    return this.tree$;
   }
 
   get tree$(): Observable<SyncableTree<EstimationNode>> {
