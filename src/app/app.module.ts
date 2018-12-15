@@ -6,11 +6,12 @@ import {FormsModule} from '@angular/forms';
 import {CoreModule} from './core/core.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
-import {PromptDialogComponent} from './shared/prompt-dialog/prompt-dialog.component';
+import {PromptDialogComponent} from './shared/modals-popups/prompt-dialog/prompt-dialog.component';
 import {LandingModule} from './landing/landing.module';
 
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app-routes';
+import {ConfirmDialogComponent} from './shared/modals-popups/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {AppRoutes} from './app-routes';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    PromptDialogComponent
+    PromptDialogComponent,
+    ConfirmDialogComponent
   ]
 })
 export class AppModule {

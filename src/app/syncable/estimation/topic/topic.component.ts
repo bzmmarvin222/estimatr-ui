@@ -3,9 +3,7 @@ import {Operation, SyncableTree} from 'sync_ot';
 import {EstimationDescription, EstimationLeaf, EstimationNode} from '../../shared/estimation';
 import {SyncableService} from '../../services/syncable.service';
 import {PromptDialog} from '../../../shared/models/dialog';
-import {PromptDialogComponent} from '../../../shared/prompt-dialog/prompt-dialog.component';
-import {take} from 'rxjs/operators';
-import {MatDialog} from '@angular/material';
+import {PromptService} from '../../../shared/services/prompt.service';
 
 @Component({
   selector: 'etmr-topic',
@@ -17,7 +15,7 @@ export class TopicComponent implements OnInit {
   @Input() public topicNode: SyncableTree<EstimationNode>;
 
   constructor(private _sync: SyncableService,
-              private _dialog: MatDialog) {
+              private _prompt: PromptService) {
   }
 
   ngOnInit() {
@@ -30,34 +28,43 @@ export class TopicComponent implements OnInit {
   }
 
   public delete(): void {
+    this._prompt
+      .confirm$({header: 'Are you sure?', description: 'You can not revert this, it will be deleted permanently.', promptData: false})
+      .subscribe((val: boolean) => {
+        if (val) {
+          this.queueDeletion();
+        }
+      });
+  }
+
+  private queueDeletion(): void {
     const operation: Operation = this.topicNode.createNodeDeletion();
     this._sync.sr.queueOperation(operation);
   }
 
   public rename(): void {
     const beforeDialog: string = this.topicNode.data as EstimationDescription;
-    const data: PromptDialog = {
+    const dialog: PromptDialog<string> = {
       header: 'Package name',
-      explanation: 'Please enter a name for this package.',
+      description: 'Please enter a name for this package.',
       placeholder: 'Name',
       promptData: this.topicNode.data as EstimationDescription
     };
-    this._dialog.open(PromptDialogComponent, {
-      data: data
-    }).afterClosed()
-      .pipe(take(1))
-      .subscribe((val: any | undefined) => {
-        const alreadyChanged = this.topicNode.data !== beforeDialog;
-        const changedToSameValue = this.topicNode.data == val;
+    this._prompt.prompt$(dialog)
+      .subscribe((val: any | undefined) => this.queueRename(beforeDialog, val));
+  }
 
-        if (val && typeof val === 'string' && !alreadyChanged) {
-          this.queueRenameOperation(val);
-        } else if (val && !changedToSameValue) {
-          // TODO: make more beautiful
-          alert('already changed by someone else...');
-        }
+  private queueRename(oldVal: string, updatedVal: string | undefined): void {
+    const alreadyChanged: boolean = this.topicNode.data !== oldVal;
+    const changedToSameValue = this.topicNode.data === updatedVal;
 
-      });
+    if (updatedVal && typeof updatedVal === 'string' && !alreadyChanged) {
+      this.queueRenameOperation(updatedVal);
+    } else if (updatedVal && !changedToSameValue) {
+      // TODO: make more beautiful
+      alert('already changed by someone else...');
+    }
+
   }
 
   private queueRenameOperation(newName: string): void {

@@ -3,7 +3,7 @@ import {SyncableService} from '../services/syncable.service';
 import {Observable} from 'rxjs';
 import {Operation, SyncableTree} from 'sync_ot';
 import {MatDialog} from '@angular/material';
-import {PromptDialogComponent} from '../../shared/prompt-dialog/prompt-dialog.component';
+import {PromptDialogComponent} from '../../shared/modals-popups/prompt-dialog/prompt-dialog.component';
 import {PromptDialog} from '../../shared/models/dialog';
 import {take} from 'rxjs/operators';
 import {EstimationNode} from '../shared/estimation';
@@ -27,9 +27,9 @@ export class EstimationComponent implements OnInit {
   }
 
   public addTopic(root: SyncableTree<EstimationNode>): void {
-    const data: PromptDialog = {
+    const data: PromptDialog<string> = {
       header: 'Package name',
-      explanation: 'Please enter a name for this package.',
+      description: 'Please enter a name for this package.',
       placeholder: 'Name',
       promptData: ''
     };

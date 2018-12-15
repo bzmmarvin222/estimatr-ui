@@ -1,6 +1,6 @@
-export interface PromptDialog {
+export interface PromptDialog<T> {
   header?: string;
-  explanation?: string;
+  description?: string;
   placeholder?: string;
-  promptData: string;
+  promptData: T;
 }
