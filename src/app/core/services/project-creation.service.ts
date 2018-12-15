@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {PromptService} from '../../shared/services/prompt.service';
 import {EstimationRoot} from '../../syncable/shared/estimation';
+import {SessionCreatedDto} from '../shared/dtos/session-created-dto';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,8 @@ import {EstimationRoot} from '../../syncable/shared/estimation';
 export class ProjectCreationService {
 
   constructor(private _http: HttpClient,
-              private _prompt: PromptService) {
+              private _prompt: PromptService,
+              private _router: Router) {
   }
 
 
@@ -34,6 +37,9 @@ export class ProjectCreationService {
         showstopper: 99
       }
     };
-    this._http.put('api/estimation', body).subscribe(v => console.log(v));
+    this._http.put<SessionCreatedDto>('api/estimation', body)
+      .subscribe((dto: SessionCreatedDto) => {
+        this._router.navigate(['/estimate', dto.sessionId]);
+      });
   }
 }
