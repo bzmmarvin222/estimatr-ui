@@ -9,4 +9,11 @@ mat-toolbar {
 
 h1 {
   flex-grow: 1;
+
+  .brand {
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    text-decoration: none;
+  }
 }
