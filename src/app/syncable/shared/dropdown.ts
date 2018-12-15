@@ -1,4 +1,4 @@
 export interface DropdownValue<T> {
-  technicalValue: T,
-  viewValue: string
+  technicalValue: T;
+  viewValue: string;
 }

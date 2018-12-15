@@ -2,7 +2,7 @@ import {DropdownValue} from './dropdown';
 
 export type Risk = 'low' | 'moderate' | 'high' | 'showstopper';
 
-export const RiskDrowndownValues: DropdownValue<Risk>[] = [
+export const RiskDropdownValues: DropdownValue<Risk>[] = [
   {technicalValue: 'low', viewValue: 'Low'},
   {technicalValue: 'moderate', viewValue: 'Moderate'},
   {technicalValue: 'high', viewValue: 'High'},
