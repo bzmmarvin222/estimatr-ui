@@ -15,7 +15,6 @@ export class ProjectCreationService {
               private _router: Router) {
   }
 
-
   public initProjectCreation(): void {
     this._prompt.prompt$({
       header: 'Enter project name',
@@ -23,7 +22,9 @@ export class ProjectCreationService {
       promptData: '',
       placeholder: 'Project name'
     }).subscribe((projectName: string | undefined) => {
-      this.createProject(projectName);
+      if (projectName) {
+        this.createProject(projectName);
+      }
     });
   }
 
