@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {SyncableService} from '../services/syncable.service';
 import {ObjectPath, Operation, SyncableTree} from 'sync_ot';
-import {Subscription} from "rxjs";
+import {Subscription} from 'rxjs';
 
 @Directive({
   selector: '[syncableText]'

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SyncableTree} from 'sync_ot';
-import {ObjectPath} from "sync_ot/dist/operation/object-traversing-util";
+import {ObjectPath} from 'sync_ot/dist/operation/object-traversing-util';
 
 @Component({
   selector: 'etmr-estimation-text',
@@ -15,7 +15,8 @@ export class EstimationTextComponent implements OnInit {
   @Input() public fontSize = '1em';
   @Input() public type: string = 'text';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

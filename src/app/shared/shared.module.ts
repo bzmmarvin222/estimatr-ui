@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { PromptDialogComponent } from './prompt-dialog/prompt-dialog.component';
-import {MatButtonModule, MatDialogModule, MatInputModule} from "@angular/material";
-import {FormsModule} from "@angular/forms";
+import {NgModule} from '@angular/core';
+import {PromptDialogComponent} from './prompt-dialog/prompt-dialog.component';
+import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [PromptDialogComponent],
@@ -13,4 +13,5 @@ import {FormsModule} from "@angular/forms";
   ],
   exports: [PromptDialogComponent]
 })
-export class SharedModule { }
+export class SharedModule {
+}

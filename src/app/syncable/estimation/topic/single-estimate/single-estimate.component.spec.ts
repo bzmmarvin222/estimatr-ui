@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SingleEstimateComponent } from './single-estimate.component';
+import {SingleEstimateComponent} from './single-estimate.component';
 
 describe('SingleEstimateComponent', () => {
   let component: SingleEstimateComponent;
@@ -8,9 +8,9 @@ describe('SingleEstimateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SingleEstimateComponent ]
+      declarations: [SingleEstimateComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

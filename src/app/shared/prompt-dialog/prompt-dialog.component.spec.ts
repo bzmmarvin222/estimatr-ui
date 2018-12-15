@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PromptDialogComponent } from './prompt-dialog.component';
+import {PromptDialogComponent} from './prompt-dialog.component';
 
 describe('PromptDialogComponent', () => {
   let component: PromptDialogComponent;
@@ -8,9 +8,9 @@ describe('PromptDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PromptDialogComponent ]
+      declarations: [PromptDialogComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

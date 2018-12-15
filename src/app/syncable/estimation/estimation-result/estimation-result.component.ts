@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SyncableTree} from "sync_ot";
-import {EstimationRoot} from "../../shared/estimation";
-import {RiskFactors} from "../../shared/risk";
+import {SyncableTree} from 'sync_ot';
+import {EstimationRoot} from '../../shared/estimation';
+import {RiskFactors} from '../../shared/risk';
 
 @Component({
   selector: 'etmr-estimation-result',
@@ -13,7 +13,8 @@ export class EstimationResultComponent implements OnInit {
   @Input() public root: SyncableTree<EstimationRoot>;
   public riskFactors: RiskFactors = {low: 1, moderate: 1.5, high: 2, showstopper: 99};
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     const rootData = this.root.data;

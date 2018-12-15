@@ -1,8 +1,8 @@
-import { SyncableTextDirective } from './syncable-text.directive';
-import {TestBed} from "@angular/core/testing";
-import {ElementRef} from "@angular/core";
-import {SyncableService} from "../services/syncable.service";
-import {SyncableServiceStub} from "../test/syncable.stubs";
+import {SyncableTextDirective} from './syncable-text.directive';
+import {TestBed} from '@angular/core/testing';
+import {ElementRef} from '@angular/core';
+import {SyncableService} from '../services/syncable.service';
+import {SyncableServiceStub} from '../test/syncable.stubs';
 
 const mockElementRef = {
   nativeElement: new HTMLInputElement()
@@ -16,8 +16,8 @@ describe('SyncableTextDirective', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: ElementRef, useClass: mockElementRef },
-        { provide: SyncableService, useClass: SyncableServiceStub}
+        {provide: ElementRef, useClass: mockElementRef},
+        {provide: SyncableService, useClass: SyncableServiceStub}
       ]
     });
     elemRef = TestBed.get(ElementRef);

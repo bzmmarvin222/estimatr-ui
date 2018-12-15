@@ -1,4 +1,4 @@
-import { EstimationTreeSumPipe } from './estimation-tree.pipe';
+import {EstimationTreeSumPipe} from './estimation-tree.pipe';
 
 describe('EstimationTreePipe', () => {
   it('create an instance', () => {

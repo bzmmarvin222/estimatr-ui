@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EstimationDropdownComponent } from './estimation-dropdown.component';
+import {EstimationDropdownComponent} from './estimation-dropdown.component';
 
 describe('EstimationDropdownComponent', () => {
   let component: EstimationDropdownComponent;
@@ -8,9 +8,9 @@ describe('EstimationDropdownComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EstimationDropdownComponent ]
+      declarations: [EstimationDropdownComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

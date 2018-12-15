@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RiskControlsComponent } from './risk-controls.component';
+import {RiskControlsComponent} from './risk-controls.component';
 
 describe('RiskControlsComponent', () => {
   let component: RiskControlsComponent;
@@ -8,9 +8,9 @@ describe('RiskControlsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RiskControlsComponent ]
+      declarations: [RiskControlsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

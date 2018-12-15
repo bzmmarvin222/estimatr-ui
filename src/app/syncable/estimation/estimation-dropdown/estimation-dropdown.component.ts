@@ -1,9 +1,8 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {ObjectPath, Operation, SyncableTree} from "sync_ot";
-import {DropdownValue} from "../../shared/dropdown";
-import {MatSelectChange} from "@angular/material";
-import {SyncableService} from "../../services/syncable.service";
-import {Subscription} from "rxjs";
+import {ObjectPath, Operation, SyncableTree} from 'sync_ot';
+import {DropdownValue} from '../../shared/dropdown';
+import {MatSelectChange} from '@angular/material';
+import {SyncableService} from '../../services/syncable.service';
 
 @Component({
   selector: 'etmr-estimation-dropdown',
@@ -21,7 +20,8 @@ export class EstimationDropdownComponent implements OnInit, OnDestroy {
   @Input() public fontSize = '1em';
   @Input() public options: DropdownValue<any>[];
 
-  constructor(private _sync: SyncableService) { }
+  constructor(private _sync: SyncableService) {
+  }
 
   ngOnInit() {
     this._sub = this.node.getDataChangesFor$(...this.objectPath)

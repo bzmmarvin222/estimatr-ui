@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
-import {PromptDialog} from "../models/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {PromptDialog} from '../models/dialog';
 
 @Component({
   selector: 'etmr-prompt-dialog',
@@ -11,7 +11,8 @@ export class PromptDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<PromptDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: PromptDialog) {}
+    @Inject(MAT_DIALOG_DATA) public data: PromptDialog) {
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

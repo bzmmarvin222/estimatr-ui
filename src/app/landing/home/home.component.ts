@@ -8,7 +8,8 @@ import {Component, HostBinding, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
   @HostBinding('class.root') true;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

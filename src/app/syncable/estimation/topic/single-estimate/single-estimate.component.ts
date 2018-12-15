@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Operation, SyncableTree} from 'sync_ot';
 import {EstimationLeaf} from '../../../shared/estimation';
-import {RiskDrowndownValues} from "../../../shared/risk";
-import {SyncableService} from "../../../services/syncable.service";
+import {RiskDrowndownValues} from '../../../shared/risk';
+import {SyncableService} from '../../../services/syncable.service';
 
 @Component({
   selector: 'etmr-single-estimate',
@@ -13,7 +13,8 @@ export class SingleEstimateComponent implements OnInit {
   @Input() singleEstimate: SyncableTree<EstimationLeaf>;
   public riskOptions = RiskDrowndownValues;
 
-  constructor(private _sync: SyncableService) { }
+  constructor(private _sync: SyncableService) {
+  }
 
   ngOnInit() {
   }
