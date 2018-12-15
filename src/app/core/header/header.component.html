@@ -3,6 +3,6 @@
     <h1>
       <a class="brand" [routerLink]="''">Estimatr</a>
     </h1>
-    <button mat-raised-button color="secondary" [routerLink]="'estimate'">Start project now!</button>
+    <button mat-raised-button color="secondary" (click)="createProject()">Start project now!</button>
   </mat-toolbar-row>
 </mat-toolbar>
