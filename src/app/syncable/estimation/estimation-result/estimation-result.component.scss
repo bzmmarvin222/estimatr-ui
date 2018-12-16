@@ -9,3 +9,42 @@ mat-toolbar {
 .effort {
   flex-grow: 1;
 }
+
+.project-title {
+  display: inline-block;
+  transition: opacity .1s ease-out, width .1s ease-out;
+  @media screen and (max-width: 776px) {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+.control-trigger {
+  user-select: none;
+  cursor: pointer;
+  padding-top: 8px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 24px;
+  transform: rotate(-180deg);
+  transition: opacity .1s ease-out, width .1s ease-out, transform .1s ease-out;
+  @media screen and (min-width: 777px) {
+    width: 0;
+    opacity: 0;
+  }
+
+  &.active {
+    transform: rotate(-360deg);
+  }
+}
+
+.controls {
+  height: 90px;
+  overflow-y: hidden;
+  transition: height .2s ease-in;
+  @media screen and (max-width: 776px) {
+    &.inactive {
+      height: 0;
+    }
+  }
+}
