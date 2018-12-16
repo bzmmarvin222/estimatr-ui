@@ -3,7 +3,9 @@
     <h1>
       <a class="brand" [routerLink]="''">Estimatr</a>
     </h1>
-    <button mat-raised-button color="secondary" (click)="createProject()">Start new project</button>
-    <button mat-raised-button color="secondary" (click)="joinSession()">Join existing session</button>
+    <div class="buttons">
+      <button mat-raised-button color="secondary" (click)="createProject()">Start new project</button>
+      <button mat-raised-button color="secondary" (click)="joinSession()">Join existing session</button>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>

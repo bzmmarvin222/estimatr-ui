@@ -1,9 +1,6 @@
 :host {
   position: sticky;
   top: 0;
-}
-
-mat-toolbar {
   z-index: 1;
 }
 
@@ -20,4 +17,38 @@ h1 {
 
 button:not(:last-child) {
   margin-right: 10px;
+}
+
+@media screen and(max-width: 502px) {
+  mat-toolbar-row.mat-toolbar-row {
+    height: 150px;
+    flex-direction: column;
+    h1 {
+      margin: 10px 0;
+      width: 100%;
+      flex-grow: unset;
+    }
+
+    .buttons {
+      width: 100%;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media screen and(max-width: 502px) {
+    button {
+      margin: unset;
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }

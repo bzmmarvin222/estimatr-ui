@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {SyncableTree} from 'sync_ot';
 import {EstimationRoot} from '../../../shared/estimation';
 
@@ -7,14 +7,7 @@ import {EstimationRoot} from '../../../shared/estimation';
   templateUrl: './risk-controls.component.html',
   styleUrls: ['./risk-controls.component.scss']
 })
-export class RiskControlsComponent implements OnInit {
+export class RiskControlsComponent {
 
   @Input() public root: SyncableTree<EstimationRoot>;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
 }
