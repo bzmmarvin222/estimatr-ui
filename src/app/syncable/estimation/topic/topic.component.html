@@ -1,4 +1,5 @@
 <mat-expansion-panel>
+
   <mat-expansion-panel-header>
     <mat-panel-title>
       <ng-content></ng-content>
@@ -12,8 +13,11 @@
     <mat-icon matTooltip="Add task" (click)="addSingleEstimate()">add_box</mat-icon>
   </div>
 
-  <etmr-single-estimate
-    *ngFor="let single of topicNode.children"
-    [singleEstimate]="single">
-  </etmr-single-estimate>
+  <div class="single-estimates">
+    <etmr-single-estimate
+      *ngFor="let single of topicNode.children"
+      [singleEstimate]="single">
+    </etmr-single-estimate>
+  </div>
+
 </mat-expansion-panel>

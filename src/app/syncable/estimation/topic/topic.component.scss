@@ -20,3 +20,11 @@ h4 {
   }
   text-align: right;
 }
+
+.single-estimates {
+  overflow-x: auto;
+  @media screen and (max-width: 626px){
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
