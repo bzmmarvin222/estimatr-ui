@@ -13,7 +13,7 @@ export class SyncableService {
   }
 
   public joinSession(sessionId: string): Observable<SyncableTree<EstimationNode>> {
-    const handler = new WebSocketHandler(environment.getWebsocketUrl(), sessionId);
+    const handler = new WebSocketHandler(environment.getWebsocketUrl(), sessionId, {Authorization: 'test'});
     this._sr = new SyncableResource(handler);
     this._tree$ = this._sr.getTree$();
     return this.tree$;
