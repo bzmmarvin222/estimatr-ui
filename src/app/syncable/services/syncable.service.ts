@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {SyncableResource, SyncableTree, WebSocketHandler} from 'sync_ot';
 import {Observable} from 'rxjs';
 import {EstimationNode} from '../shared/estimation';
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class SyncableService {
@@ -12,7 +13,7 @@ export class SyncableService {
   }
 
   public joinSession(sessionId: string): Observable<SyncableTree<EstimationNode>> {
-    const handler = new WebSocketHandler(`wss://${location.host.trim()}`, sessionId);
+    const handler = new WebSocketHandler(environment.getWebsocketUrl(), sessionId);
     this._sr = new SyncableResource(handler);
     this._tree$ = this._sr.getTree$();
     return this.tree$;

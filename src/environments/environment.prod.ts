@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  getWebsocketUrl: (path: string = '') => `wss://${location.host.trim()}${path}`
 };
