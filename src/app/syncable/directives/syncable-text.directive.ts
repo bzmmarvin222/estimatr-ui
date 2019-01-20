@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs';
 })
 export class SyncableTextDirective implements OnInit, OnDestroy {
 
-  @Input() syncableText: SyncableTree<any>;
+  @Input() etmrSyncableText: SyncableTree<any>;
   @Input() objectPath: ObjectPath = [];
 
   private _inputElement: HTMLInputElement;
@@ -32,16 +32,16 @@ export class SyncableTextDirective implements OnInit, OnDestroy {
     // TODO: find out why types do not match
     let toSubscribe$;
     if (this.objectPath && this.objectPath.length > 0) {
-      toSubscribe$ = this.syncableText.getDataChangesFor$(...this.objectPath);
+      toSubscribe$ = this.etmrSyncableText.getDataChangesFor$(...this.objectPath);
     } else {
-      toSubscribe$ = this.syncableText.dataChanges$;
+      toSubscribe$ = this.etmrSyncableText.dataChanges$;
     }
     this._subscription = toSubscribe$.subscribe(data => this._inputElement.value = data);
   }
 
   private handleInput(event): void {
     // TODO: no full replacement
-    const operation: Operation = this.syncableText.createReplacement(this._inputElement.value, ...this.objectPath);
+    const operation: Operation = this.etmrSyncableText.createReplacement(this._inputElement.value, ...this.objectPath);
     this._sync.sr.queueOperation(operation);
   }
 
