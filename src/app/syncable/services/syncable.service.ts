@@ -12,8 +12,8 @@ export class SyncableService {
   constructor() {
   }
 
-  public joinSession(sessionId: string): Observable<SyncableTree<EstimationNode>> {
-    const handler = new WebSocketHandler(environment.getWebsocketUrl(), sessionId, {Authorization: 'test'});
+  public joinSession(estimationId: string): Observable<SyncableTree<EstimationNode>> {
+    const handler = new WebSocketHandler(environment.getWebsocketUrl(), estimationId, {Authorization: 'test'});
     this._sr = new SyncableResource(handler);
     this._tree$ = this._sr.getTree$();
     return this.tree$;

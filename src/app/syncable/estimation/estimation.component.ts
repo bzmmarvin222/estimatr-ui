@@ -27,8 +27,8 @@ export class EstimationComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._sub = this._route.params.subscribe((params: Params) => {
-      const sessionId: string = params['sessionId'];
-      this.estimation$ = this._sync.joinSession(sessionId);
+      const estimationId: string = params['estimationId'];
+      this.estimation$ = this._sync.joinSession(estimationId);
     });
 
   }

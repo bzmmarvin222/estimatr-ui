@@ -21,9 +21,9 @@ export class ProjectCreationService {
       description: 'Please enter the sessions id.',
       promptData: '',
       placeholder: 'Session id'
-    }).subscribe((sessionId: string | undefined) => {
-      if (sessionId) {
-        this.joinSession(sessionId);
+    }).subscribe((estimationId: string | undefined) => {
+      if (estimationId) {
+        this.joinSession(estimationId);
       }
     });
   }
@@ -53,11 +53,11 @@ export class ProjectCreationService {
     };
     this._http.put<SessionCreatedDto>('api/estimation', body)
       .subscribe((dto: SessionCreatedDto) => {
-        this.joinSession(dto.sessionId);
+        this.joinSession(dto.estimationId);
       });
   }
 
-  private joinSession(sessionId: string): void {
-    this._router.navigate(['/estimate', sessionId]);
+  private joinSession(estimationId: string): void {
+    this._router.navigate(['/estimate', estimationId]);
   }
 }
