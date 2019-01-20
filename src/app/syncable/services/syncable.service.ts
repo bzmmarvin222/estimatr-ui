@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {SyncableResource, SyncableTree, WebSocketHandler} from 'sync_ot';
 import {Observable} from 'rxjs';
 import {EstimationNode} from '../shared/estimation';
-import {environment} from "../../../environments/environment";
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class SyncableService {

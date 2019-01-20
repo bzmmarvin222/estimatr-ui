@@ -20,6 +20,11 @@ node {
       sh 'npm run build-prod'
     }
 
+    stage('npm lint') {
+      echo "Running npm lint"
+      sh 'npm run lint'
+    }
+
     stage('npm test') {
       echo "Running npm test"
       echo "Currently nobody wrote any useful tests..."

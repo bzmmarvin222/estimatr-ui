@@ -4,7 +4,7 @@ import {ObjectPath, Operation, SyncableTree} from 'sync_ot';
 import {Subscription} from 'rxjs';
 
 @Directive({
-  selector: '[syncableText]'
+  selector: '[etmrSyncableText]'
 })
 export class SyncableTextDirective implements OnInit, OnDestroy {
 
