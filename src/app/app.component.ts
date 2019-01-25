@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {GoogleOAuthService} from './auth/services/oauth/google-oauth.service';
 
 @Component({
   selector: 'etmr-root',
@@ -7,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor() {
+  constructor(private _googleAuth: GoogleOAuthService) {
   }
 
   ngOnInit(): void {
