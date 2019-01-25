@@ -13,4 +13,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  login(): void {
+    this._googleAuth.authorize();
+  }
 }

@@ -4,6 +4,19 @@ import {Observable} from 'rxjs';
 import {EstimationNode} from '../shared/estimation';
 import {environment} from '../../../environments/environment';
 
+function getCookie(name: string): string {
+  const nameLenPlus = (name.length + 1);
+  return document.cookie
+    .split(';')
+    .map(c => c.trim())
+    .filter(cookie => {
+      return cookie.substring(0, nameLenPlus) === `${name}=`;
+    })
+    .map(cookie => {
+      return decodeURIComponent(cookie.substring(nameLenPlus));
+    })[0] || null;
+}
+
 @Injectable()
 export class SyncableService {
   private _tree$;
@@ -13,7 +26,8 @@ export class SyncableService {
   }
 
   public joinSession(estimationId: string): Observable<SyncableTree<EstimationNode>> {
-    const handler = new WebSocketHandler(environment.getWebsocketUrl(), estimationId, {Authorization: 'test'});
+    const jwt = getCookie('jwt');
+    const handler = new WebSocketHandler(environment.getWebsocketUrl(), estimationId, {Authorization: `Bearer ${jwt}`});
     this._sr = new SyncableResource(handler);
     this._tree$ = this._sr.getTree$();
     return this.tree$;
