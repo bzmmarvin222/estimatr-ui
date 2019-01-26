@@ -5,4 +5,5 @@ export interface UserDto {
   externalProfileId: string;
   displayName: string;
   userType: UserType;
+  exp: number;
 }
