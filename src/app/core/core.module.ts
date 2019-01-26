@@ -4,6 +4,7 @@ import {SharedModule} from '../shared/shared.module';
 import {MatButtonModule, MatIconModule, MatToolbarModule} from '@angular/material';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import {HttpClientModule} from '@angular/common/http';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    CommonModule
   ],
   declarations: [
     HeaderComponent,

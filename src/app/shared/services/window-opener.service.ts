@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
-import {filter, map, tap} from 'rxjs/operators';
+import {combineLatest, interval, Observable, race, Subject} from 'rxjs';
+import {filter, map, take, takeWhile, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +13,23 @@ export class WindowOpenerService {
     window.addEventListener('message', evt => this._events$.next(evt));
   }
 
-  public open(location: string): Promise<boolean> {
+  public open(location: string): Observable<boolean> {
     const opened: Window = this.openCentered(location, 452, 633);
 
-    return this._events$.pipe(
+    const pollStillOpen$ = interval(500)
+      .pipe(
+        map(() => !opened.closed),
+        filter(open => !open)
+      );
+
+    const success$ = this._events$.pipe(
       filter(evt => evt.source === opened),
       map(evt => evt.data.status == 200),
       tap(() => opened.close())
-    ).toPromise();
+    );
+
+    return race(pollStillOpen$, success$)
+      .pipe(take(1));
   }
 
   /**

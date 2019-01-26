@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ProjectCreationService} from '../services/project-creation.service';
+import {AuthService} from '../../auth/services/auth.service';
+import {Observable} from 'rxjs';
+import {UserDto} from '../../auth/shared/dto/user.dto';
 
 @Component({
   selector: 'etmr-header',
@@ -8,10 +11,14 @@ import {ProjectCreationService} from '../services/project-creation.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _projectCreation: ProjectCreationService) {
+  public user$: Observable<UserDto>;
+
+  constructor(private _projectCreation: ProjectCreationService,
+              private _auth: AuthService) {
   }
 
   ngOnInit() {
+    this.user$ = this._auth.userChanges$;
   }
 
   public createProject(): void {

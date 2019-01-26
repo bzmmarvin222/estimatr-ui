@@ -3,6 +3,7 @@ import {PromptDialogComponent} from './modals-popups/prompt-dialog/prompt-dialog
 import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import { ConfirmDialogComponent } from './modals-popups/confirm-dialog/confirm-dialog.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [PromptDialogComponent, ConfirmDialogComponent],
@@ -12,6 +13,7 @@ import { ConfirmDialogComponent } from './modals-popups/confirm-dialog/confirm-d
     MatDialogModule,
     MatButtonModule
   ],
+  providers: [CookieService],
   exports: [PromptDialogComponent]
 })
 export class SharedModule {
