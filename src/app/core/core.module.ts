@@ -5,6 +5,7 @@ import {MatButtonModule, MatIconModule, MatToolbarModule} from '@angular/materia
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
+import {AuthModule} from '../auth/auth.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import {CommonModule} from '@angular/common';
     MatIconModule,
     MatButtonModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    AuthModule
   ],
   declarations: [
     HeaderComponent,
