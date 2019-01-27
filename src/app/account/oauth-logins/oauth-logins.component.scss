@@ -1,0 +1,44 @@
+$border-color: rgba(0,0,0,.26);
+
+.oauth {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  .oauth-btn {
+    cursor: pointer;
+    display: flex;
+    padding: 10px 8px;
+    flex-grow: 1;
+    height: 40px;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    font-size: 14px;
+    position: relative;
+
+    &:before {
+      content: "";
+      border-left: 1px solid $border-color;
+      position: absolute;
+      display: block;
+      left: 34px;
+      top: 0;
+      bottom: 0;
+    }
+
+    span {
+      padding-left: 8px;
+      line-height: 19px;
+      flex-grow: 1;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  .google {
+    background: #FFFFFF;
+    &:hover {
+      background: rgba(0,0,0,.05);
+    }
+  }
+}
