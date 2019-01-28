@@ -3,13 +3,13 @@
     <h1>
       <a class="brand" [routerLink]="''">Estimatr</a>
     </h1>
-    <div class="buttons" *ngIf="user$ | async as user; else login">
-      {{user.displayName}}
+    <div class="buttons" *ngIf="user$ | async as user; else notauthorized">
       <button mat-raised-button color="secondary" (click)="createProject()">Start new project</button>
       <button mat-raised-button color="secondary" (click)="joinSession()">Join existing session</button>
     </div>
-    <ng-template #login>
-      Login
+    <ng-template #notauthorized>
+      <button mat-raised-button color="secondary" (click)="login()">Login</button>
+      <button mat-raised-button color="secondary" (click)="signup()">Sign Up</button>
     </ng-template>
   </mat-toolbar-row>
 </mat-toolbar>

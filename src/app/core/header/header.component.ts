@@ -3,6 +3,7 @@ import {ProjectCreationService} from '../services/project-creation.service';
 import {AuthService} from '../../auth/services/auth.service';
 import {Observable} from 'rxjs';
 import {UserDto} from '../../auth/shared/dto/user.dto';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'etmr-header',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
   public user$: Observable<UserDto>;
 
   constructor(private _projectCreation: ProjectCreationService,
-              private _auth: AuthService) {
+              private _auth: AuthService,
+              private _router: Router) {
   }
 
   ngOnInit() {
@@ -29,4 +31,11 @@ export class HeaderComponent implements OnInit {
     this._projectCreation.switchSession();
   }
 
+  public login(): void {
+    this._router.navigate(['account/login']);
+  }
+
+  public signup(): void {
+    this._router.navigate(['account/signup']);
+  }
 }
