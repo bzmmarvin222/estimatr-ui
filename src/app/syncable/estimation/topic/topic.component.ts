@@ -1,9 +1,13 @@
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {Operation, SyncableTree} from 'sync_ot';
-import {EstimationDescription, EstimationLeaf, EstimationNode} from '../../shared/estimation';
 import {SyncableService} from '../../services/syncable.service';
 import {PromptDialog} from '../../../shared/models/dialog';
 import {PromptService} from '../../../shared/services/prompt.service';
+import {
+  EstimationDescription,
+  EstimationLeaf,
+  EstimationNode
+} from '../../../estimatr-common/lib/estimation/estimation';
 
 @Component({
   selector: 'etmr-topic',

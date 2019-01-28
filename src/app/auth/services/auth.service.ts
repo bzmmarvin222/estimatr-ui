@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as jwtdecode from 'jwt-decode';
-import {UserDto} from '../shared/dto/user.dto';
 import {CookieService} from 'ngx-cookie-service';
 import {Observable, ReplaySubject, Subject} from 'rxjs';
+import {UserDto} from '../../estimatr-common/lib/auth/dto/user.dto';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,5 @@
 import {DropdownValue} from './dropdown';
-
-export type Risk = 'low' | 'moderate' | 'high' | 'showstopper';
+import {Risk} from '../../estimatr-common/lib/estimation/risk';
 
 export const RiskDropdownValues: DropdownValue<Risk>[] = [
   {technicalValue: 'low', viewValue: 'Low'},
@@ -8,10 +7,3 @@ export const RiskDropdownValues: DropdownValue<Risk>[] = [
   {technicalValue: 'high', viewValue: 'High'},
   {technicalValue: 'showstopper', viewValue: 'Possible showstopper'}
 ];
-
-export interface RiskFactors {
-  low: number;
-  moderate: number;
-  high: number;
-  showstopper: number;
-}

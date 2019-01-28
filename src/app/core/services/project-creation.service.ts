@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {PromptService} from '../../shared/services/prompt.service';
-import {EstimationRoot} from '../../syncable/shared/estimation';
-import {SessionCreatedDto} from '../shared/dtos/session-created-dto';
 import {Router} from '@angular/router';
+import {SessionCreatedDto} from '../../estimatr-common/lib/estimation/dto/session-created-dto';
+import {EstimationRoot} from '../../estimatr-common/lib/estimation/estimation';
 
 @Injectable({
   providedIn: 'root'

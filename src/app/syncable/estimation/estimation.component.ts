@@ -6,8 +6,8 @@ import {MatDialog} from '@angular/material';
 import {PromptDialogComponent} from '../../shared/modals-popups/prompt-dialog/prompt-dialog.component';
 import {PromptDialog} from '../../shared/models/dialog';
 import {take} from 'rxjs/operators';
-import {EstimationNode} from '../shared/estimation';
 import {ActivatedRoute, Params} from '@angular/router';
+import {EstimationNode} from '../../estimatr-common/lib/estimation/estimation';
 
 @Component({
   selector: 'etmr-estimation',

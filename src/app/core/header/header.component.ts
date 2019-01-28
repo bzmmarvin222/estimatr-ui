@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ProjectCreationService} from '../services/project-creation.service';
 import {AuthService} from '../../auth/services/auth.service';
 import {Observable} from 'rxjs';
-import {UserDto} from '../../auth/shared/dto/user.dto';
 import {Router} from '@angular/router';
+import {UserDto} from '../../estimatr-common/lib/auth/dto/user.dto';
 
 @Component({
   selector: 'etmr-header',

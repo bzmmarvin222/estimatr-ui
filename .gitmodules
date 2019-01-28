@@ -1,0 +1,3 @@
+[submodule "src/app/estimatr-common"]
+	path = src/app/estimatr-common
+	url = https://github.com/bzmmarvin222/estimatr-common.git

@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {SyncableTree} from 'sync_ot';
-import {EstimationRoot} from '../../../shared/estimation';
+import {EstimationRoot} from '../../../../estimatr-common/lib/estimation/estimation';
 
 @Component({
   selector: 'etmr-risk-controls',

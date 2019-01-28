@@ -1,7 +1,7 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {SyncableTree} from 'sync_ot';
-import {EstimationLeaf, EstimationNode} from '../shared/estimation';
-import {RiskFactors} from '../shared/risk';
+import {EstimationLeaf, EstimationNode} from '../../estimatr-common/lib/estimation/estimation';
+import {RiskFactors} from '../../estimatr-common/lib/estimation/risk';
 
 @Pipe({
   name: 'estimationTreeSum',

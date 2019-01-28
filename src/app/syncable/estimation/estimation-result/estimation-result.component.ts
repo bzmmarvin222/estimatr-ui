@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SyncableTree} from 'sync_ot';
-import {EstimationRoot} from '../../shared/estimation';
-import {RiskFactors} from '../../shared/risk';
+import {EstimationRoot} from '../../../estimatr-common/lib/estimation/estimation';
+import {RiskFactors} from '../../../estimatr-common/lib/estimation/risk';
 
 @Component({
   selector: 'etmr-estimation-result',

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {SyncableResource, SyncableTree, WebSocketHandler} from 'sync_ot';
 import {Observable} from 'rxjs';
-import {EstimationNode} from '../shared/estimation';
 import {environment} from '../../../environments/environment';
+import {EstimationNode} from '../../estimatr-common/lib/estimation/estimation';
 
 function getCookie(name: string): string {
   const nameLenPlus = (name.length + 1);
