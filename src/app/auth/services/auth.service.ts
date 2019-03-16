@@ -3,6 +3,7 @@ import * as jwtdecode from 'jwt-decode';
 import {CookieService} from 'ngx-cookie-service';
 import {Observable, ReplaySubject, Subject} from 'rxjs';
 import {UserDto} from '../../estimatr-common/lib/auth/dto/user.dto';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   private _user: UserDto;
   private _rawToken: string;
 
-  constructor() {
+  constructor(private _router: Router) {
     this._userChanges$.subscribe(user => this._user = user);
   }
 
@@ -36,6 +37,7 @@ export class AuthService {
     if (user.exp >= Date.now() / 1000) {
       this._rawToken = jwt;
       this._userChanges$.next(user);
+      this._router.navigate(['administration/all']);
     }
   }
 

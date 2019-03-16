@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/services/auth.service';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
@@ -10,6 +10,7 @@ import {EstimationDto} from '../../estimatr-common/lib/estimation/dto/estimation
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit {
+  @HostBinding('class.root') true;
 
   public estimations$: Observable<EstimationDto[]>;
 
