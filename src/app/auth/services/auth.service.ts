@@ -13,9 +13,8 @@ export class AuthService {
   private _user: UserDto;
   private _rawToken: string;
 
-  constructor(private _cookies: CookieService) {
+  constructor() {
     this._userChanges$.subscribe(user => this._user = user);
-    this.loadUserFromCookie();
   }
 
   get userChanges$(): Observable<UserDto> {
@@ -28,8 +27,7 @@ export class AuthService {
     return this._rawToken;
   }
 
-  public loadUserFromCookie(): void {
-    const jwt: string = this._cookies.get('jwt');
+  public loadFromToken(jwt: string): void {
     if (!jwt) {
       return;
     }

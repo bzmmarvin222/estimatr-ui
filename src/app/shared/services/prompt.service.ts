@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {PromptDialog} from '../models/dialog';
+import {PromptDialog} from '../models/dialog.interface';
 import {Observable} from 'rxjs';
 import {PromptDialogComponent} from '../modals-popups/prompt-dialog/prompt-dialog.component';
 import {ConfirmDialogComponent} from '../modals-popups/confirm-dialog/confirm-dialog.component';

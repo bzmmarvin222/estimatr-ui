@@ -4,7 +4,7 @@ import {Observable, Subscription} from 'rxjs';
 import {Operation, SyncableTree} from 'sync_ot';
 import {MatDialog} from '@angular/material';
 import {PromptDialogComponent} from '../../shared/modals-popups/prompt-dialog/prompt-dialog.component';
-import {PromptDialog} from '../../shared/models/dialog';
+import {PromptDialog} from '../../shared/models/dialog.interface';
 import {take} from 'rxjs/operators';
 import {ActivatedRoute, Params} from '@angular/router';
 import {EstimationNode} from '../../estimatr-common/lib/estimation/estimation';
