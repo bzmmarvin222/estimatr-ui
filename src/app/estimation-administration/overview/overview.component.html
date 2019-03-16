@@ -1,3 +1,4 @@
-<pre *ngFor="let etm of estimations$ | async">
-  {{etm | json}}
-</pre>
+<etmr-overview-item
+  *ngFor="let etm of estimations$ | async"
+  [estimation]="etm">
+</etmr-overview-item>

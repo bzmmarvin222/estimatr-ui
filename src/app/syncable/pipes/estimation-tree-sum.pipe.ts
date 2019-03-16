@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {SyncableTree} from 'sync_ot';
-import {EstimationLeaf, EstimationNode} from '../../estimatr-common/lib/estimation/estimation';
+import {EstimationLeaf, EstimationNode, EstimationRoot} from '../../estimatr-common/lib/estimation/estimation';
 import {RiskFactors} from '../../estimatr-common/lib/estimation/risk';
 
 @Pipe({
@@ -9,8 +9,9 @@ import {RiskFactors} from '../../estimatr-common/lib/estimation/risk';
 })
 export class EstimationTreeSumPipe implements PipeTransform {
 
-  transform(root: SyncableTree<EstimationNode>, factors: RiskFactors): number {
-    return root.children.reduce((prev: number, curr: SyncableTree<EstimationNode>) => prev + this.mapWorkItemPackage(curr, factors), 0);
+  transform(root: SyncableTree<EstimationNode>): number {
+    const riskFactors = (<EstimationRoot>root.data).riskFactors;
+    return root.children.reduce((prev: number, curr: SyncableTree<EstimationNode>) => prev + this.mapWorkItemPackage(curr, riskFactors), 0);
   }
 
   private mapWorkItemPackage(pck: SyncableTree<EstimationNode>, factors: RiskFactors): number {
