@@ -1,4 +1,15 @@
-<etmr-overview-item
-  *ngFor="let etm of estimations$ | async"
-  [estimation]="etm">
-</etmr-overview-item>
+<div *ngIf="estimations$ | async as estimations">
+  <mat-list
+    *ngFor="let etm of estimations; let index = index">
+
+    <mat-list-item>
+      <etmr-overview-item
+        [estimation]="etm">
+
+      </etmr-overview-item>
+    </mat-list-item>
+
+    <mat-divider *ngIf="index < estimations.length - 1"></mat-divider>
+
+  </mat-list>
+</div>

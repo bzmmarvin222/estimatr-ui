@@ -1,3 +1,10 @@
-<div>
-  {{estimation.tree.data | json}}
+<div class="item">
+  <h3 class="title">
+    {{rootData.projectTitle}}
+  </h3>
+  <div class="buttons">
+    <button mat-icon-button color="accent" (click)="edit()">
+      <mat-icon aria-label="Edit this estimation.">edit</mat-icon>
+    </button>
+  </div>
 </div>
